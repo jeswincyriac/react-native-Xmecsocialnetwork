@@ -42,11 +42,15 @@ export default class Login extends React.Component {
              <Text style={styles.header}>-LOGIN -</Text>
              <TextInput
                  style={styles.textInput} placeholder='Username'
+                 placeholderTextColor="#FFFFFF"
+
                  onChangeText={(username) => this.setState({username})}
                  underlineColorAndroid='transparent'
               />
               <TextInput
                   style={styles.textInput} placeholder='Password'
+                  placeholderTextColor="#FFFFFF"
+
                   onChangeText={(password) => this.setState({password})}
                underlineColorAndroid='transparent'
                />
@@ -118,8 +122,12 @@ const styles =StyleSheet.create({
       alignSelf:'stretch',
       padding:16,
       marginBottom:20,
-      backgroundColor:'#fff',
+      backgroundColor:'rgba(0,0,0,0.5)',
+      color: '#fff',
+      opacity:0.5,
+
     },
+
     btn: {
       alignSelf:'stretch',
       backgroundColor:'#01c853',
