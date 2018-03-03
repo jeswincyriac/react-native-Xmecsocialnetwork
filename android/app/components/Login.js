@@ -75,7 +75,7 @@ export default class Login extends React.Component {
                   underlineColorAndroid='transparent'
                 />
             </View>
-      </View>
+
 
       <View style={styles.check}>
                 <View style={styles.checkbox}>
@@ -98,6 +98,22 @@ export default class Login extends React.Component {
           fontStyle:'italic'
       }}>Forgot Password ?</Text>
       </TouchableOpacity>
+      </View>
+
+
+      <TouchableOpacity  style={styles.guestcontainer}>
+      <Text style={{
+          color:'#fff',
+          fontWeight:"bold",
+          fontSize:24,
+          marginLeft:30,
+          marginTop:15
+      }}>Guest Login</Text>
+      <Image style={styles.guest} source={require('./images/guest.png')}
+       resizeMode="contain"/>
+       </TouchableOpacity>
+
+
 
     </View>
      </ImageBackground>
@@ -163,7 +179,7 @@ const styles =StyleSheet.create({
     textInput:{
       alignSelf:'stretch',
     //  padding:5,
-      backgroundColor:'rgba(0,0,0,0.5)',
+      backgroundColor:'rgba(0,0,0,0.7)',
       color: '#fff',
       width:230,
       height:50,
@@ -192,7 +208,7 @@ const styles =StyleSheet.create({
     imagecontainer:{
            paddingBottom:10,
            paddingTop:10,
-           backgroundColor:'rgba(0,0,0,0.5)',
+           backgroundColor:'rgba(0,0,0,0.7)',
         //  padding:10
     },
     check:{
@@ -210,7 +226,7 @@ const styles =StyleSheet.create({
     },
     log:{
           fontWeight:'bold',
-          fontSize:18,
+          fontSize:21,
           color:"#fff"
     },
     background:{
@@ -218,13 +234,38 @@ const styles =StyleSheet.create({
 
     },
     blacklayer:{
-        backgroundColor:'rgba(0,0,0,0.5)',
+        backgroundColor:'rgba(0,0,0,0.6)',
         flex:1,
         alignItems:'center',
-        justifyContent:'center',
+        //justifyContent:'center',
     },
     border:{
         marginTop:10,
         //backgroundColor:'rgba(0,0,0,1)'
+    },
+    guest:{
+        width:50,
+        height:50,
+        //marginLeft:200,
+        marginTop:10,
+        marginRight:10
+
+    },
+    form:{
+        //backgroundColor:"#fff",
+        alignItems:'center',
+        marginTop:200,
+    },
+    guestcontainer:{
+        backgroundColor:"rgba(0,0,0,1)",
+        marginTop:50,
+        height:70,
+        flexDirection:"row",
+        //marginLeft:50,
+        shadowOffset: { width: 10, height: 10 },
+        shadowColor: '#fff',
+        shadowOpacity: 1,
+        elevation: 3,
+        // background color must be setssss
     }
 });
