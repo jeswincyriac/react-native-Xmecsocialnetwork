@@ -14,11 +14,12 @@ import {
   TouchableOpacity,
   AsyncStorage,
   Image,
-  CheckBox,
+
   ImageBackground,
 
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import Checkbox from 'react-native-custom-checkbox';
 
 export default class Login extends React.Component {
   constructor(props){
@@ -44,7 +45,7 @@ export default class Login extends React.Component {
 
     <KeyboardAvoidingView behavior='padding' style = {styles.wrapper}>
 
-    <ImageBackground style={styles.background} source={require('./images/mec.png')}  >
+    <ImageBackground style={styles.background} source={require('./images/dmec.png')}  >
     <View style={styles.blacklayer}>
       <View style={styles.form}>
 
@@ -78,10 +79,17 @@ export default class Login extends React.Component {
 
 
       <View style={styles.check}>
-                <View style={styles.checkbox}>
-                  <CheckBox  />
-                </View>
-                <Text style={{color:"#fff"}}>    Remember me</Text>
+
+        <Checkbox
+          style={{backgroundColor: 'rgba(168,168,168,.7)', color:'rgba(0,0,0,1)', borderRadius: 5}}
+          //onChange={(name, checked) => _myFunction(name, checked)}
+
+          />
+        <Text style={{
+               alignItems:"center",
+               color:"rgba(168,168,168,1)"
+
+        }}>Remember me</Text>
 
         </View>
 
@@ -98,23 +106,49 @@ export default class Login extends React.Component {
           fontStyle:'italic'
       }}>Forgot Password ?</Text>
       </TouchableOpacity>
-      </View>
+      </View >
+      <View style={{
+
+          //backgroundColor:'rgba(50,0,0,0.8)',
+          flex:1,
+          justifyContent:"flex-end",
+
+      }}>
+      <View style={{
+           //backgroundColor:'rgba(0,0,0,0.8)',
+           flexDirection:"row",
+           justifyContent: "space-around",
 
 
+      }}>
       <TouchableOpacity  style={styles.guestcontainer}>
       <Text style={{
-          color:'#fff',
-          fontWeight:"bold",
-          fontSize:24,
-          marginLeft:30,
-          marginTop:15
+          color:'rgba(255,255,255,.7)',
+          //fontWeight:"bold",
+          fontSize:19,
+
+         // alignItems:'center',
+         // justifyContent:'center'
       }}>Guest Login</Text>
-      <Image style={styles.guest} source={require('./images/guest.png')}
-       resizeMode="contain"/>
-       </TouchableOpacity>
+      </TouchableOpacity>
+
+      <TouchableOpacity  style={styles.guestcontainer}
+        onPress={this.register}  >
+      <Text style={{
+          color:'rgba(255,255,255,0.7)',
+          //fontWeight:"bold",
+          fontSize:20,
+
+         // alignItems:'center',
+         // justifyContent:'center'
+     }}>Register</Text>
+      </TouchableOpacity>
 
 
 
+
+    </View>
+    </View>
     </View>
      </ImageBackground>
 
@@ -156,6 +190,10 @@ export default class Login extends React.Component {
      alert('profile not created');
    }
 
+   register = ()=>{
+       this.props.navigation.navigate('register')
+   }
+
 
 }
 const styles =StyleSheet.create({
@@ -191,10 +229,10 @@ const styles =StyleSheet.create({
     btn: {
       width:225,
       backgroundColor:'#0099FF',
-      padding: 20,
+      padding: 15,
       alignItems: 'center',
       marginTop:20,
-      borderRadius:30,
+      borderRadius:100,
     },
     loginuser: {
 
@@ -215,7 +253,7 @@ const styles =StyleSheet.create({
         width:300,
         flexDirection: 'row',
         marginTop:5,
-        marginLeft:40,
+        //marginLeft:40,
         //backgroundColor:"#fff",
 
     },
@@ -236,7 +274,7 @@ const styles =StyleSheet.create({
     blacklayer:{
         backgroundColor:'rgba(0,0,0,0.6)',
         flex:1,
-        alignItems:'center',
+        //alignItems:'center',
         //justifyContent:'center',
     },
     border:{
@@ -257,15 +295,18 @@ const styles =StyleSheet.create({
         marginTop:200,
     },
     guestcontainer:{
-        backgroundColor:"rgba(0,0,0,1)",
-        marginTop:50,
-        height:70,
+        backgroundColor:"rgba(0,0,0,.8)",
+        //marginTop:100,
+        height:60,
         flexDirection:"row",
-        //marginLeft:50,
-        shadowOffset: { width: 10, height: 10 },
-        shadowColor: '#fff',
-        shadowOpacity: 1,
-        elevation: 3,
         // background color must be setssss
+        //borderWidth: 1,
+        //borderColor: 'rgba(168,168,168,.2)',
+        borderRadius:100,
+        width:180,
+        justifyContent:"center",
+       alignItems:"center",
+       marginBottom:15,
+
     }
 });
