@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Login from './android/app/components/Login.js';
+import Register from './android/app/components/Register.js';
 const Application =StackNavigator({
   Home:{screen:Login},
 },{

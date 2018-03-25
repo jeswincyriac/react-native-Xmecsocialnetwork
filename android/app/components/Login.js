@@ -10,14 +10,15 @@ import {
   Text,
   View,
   TextInput,
-  KeyboardAvoidingView,
+
   TouchableOpacity,
   AsyncStorage,
   Image,
-
+  ScrollView,
   ImageBackground,
 
 } from 'react-native';
+
 import { StackNavigator } from 'react-navigation';
 import Checkbox from 'react-native-custom-checkbox';
 
@@ -43,7 +44,6 @@ export default class Login extends React.Component {
   render() {
     return(
 
-    <KeyboardAvoidingView behavior='padding' style = {styles.wrapper}>
 
     <ImageBackground style={styles.background} source={require('./images/dmec.png')}  >
     <View style={styles.blacklayer}>
@@ -147,12 +147,12 @@ export default class Login extends React.Component {
 
 
 
+
     </View>
+
     </View>
     </View>
      </ImageBackground>
-
-    </KeyboardAvoidingView>
 
 
     );
@@ -191,15 +191,15 @@ export default class Login extends React.Component {
    }
 
    register = ()=>{
-       this.props.navigation.navigate('register')
+       
+       this.props.navigation.navigate('Register')
+
    }
 
 
 }
 const styles =StyleSheet.create({
-    wrapper:{
-      flex: 1,
-    },
+
 /*    container:{
       flex: 1,
       alignItems:'center',
