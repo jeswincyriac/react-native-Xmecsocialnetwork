@@ -15,10 +15,10 @@ export default class Register extends React.Component {
   render() {
     return(
 
-    <KeyboardAvoidingView behavior='padding' style = {styles.wrapper}>
+    <View  style = {styles.wrapper}>
+    <Text>hello</Text>
 
-
-    </KeyboardAvoidingView>
+    </View>
 
 
     );
@@ -30,13 +30,13 @@ export default class Register extends React.Component {
 }
 const styles =StyleSheet.create({
 
-/*    container:{
+  wrapper:{
       flex: 1,
-      alignItems:'center',
-      justifyContent:'center',
-      //backgroundColor:'rgba(0,0,0,0.8)',
-      paddingLeft:40,
-      paddingRight: 40,
-  },*/
+      //alignItems:'center',
+      //justifyContent:'center',
+     backgroundColor:'#607D8B',
+
+
+  }
 
 });
