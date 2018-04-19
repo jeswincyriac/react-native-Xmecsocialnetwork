@@ -11,11 +11,11 @@ import {
   View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import Login from './android/app/components/Login.js';
-import Register from './android/app/components/Register.js';
+
+import Loginm from './android/app/components/Loginm.js';
 const Application =StackNavigator({
-  Home:{screen:Login},
-  Register:{screen:Register}
+  Home:{screen:Loginm},
+ // Register:{screen:Register}
 },{
   navigationOptions:{
     header:false,
