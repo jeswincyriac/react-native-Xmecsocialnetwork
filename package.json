@@ -12,7 +12,10 @@
     "react-native": "0.53.0",
     "react-native-checkbox": "^2.0.0",
     "react-native-custom-checkbox": "^1.5.2",
+    "react-native-datepicker": "^1.7.1",
+    "react-native-display": "^1.0.8",
     "react-native-keyboard-aware-scroll-view": "^0.5.0",
+    "react-native-relative-units": "0.0.4",
     "react-navigation": "^1.1.2"
   },
   "devDependencies": {

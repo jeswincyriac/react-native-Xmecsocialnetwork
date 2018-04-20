@@ -6,14 +6,30 @@ import{
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Login from './Login.js';
+import Register from './Register.js';
+import Display from 'react-native-display';
 export default class Loginm extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        loginenable:true
+      }
+    }
+    myCallback = (dataFromChild) => {
+        this.setState({ loginenable: dataFromChild });
+   }
     render() {
+
+
       return(
           <ImageBackground style={styles.background} source={require('./images/dmec.png')}  >
-          <View style={styles.blacklayer}>
+             <Display enable={this.state.loginenable} style={{flex:1}}>
+                  <Login callbackFromParent={this.myCallback}/>
+             </Display>
+             <Display enable={!this.state.loginenable} style={{flex:1}}>
+                  <Register/>
+             </Display>
 
-         <Login></Login>
-          </View>
           </ImageBackground>
 
 
@@ -28,10 +44,6 @@ const styles =StyleSheet.create({
         flex: 1,
 
     },
-    blacklayer:{
-        backgroundColor:'rgba(0,0,0,0.6)',
-        flex:1,
-        //alignItems:'center',
-        //justifyContent:'center',
-    },
+
+
 });

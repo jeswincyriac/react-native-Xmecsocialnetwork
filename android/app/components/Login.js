@@ -21,7 +21,7 @@ import {
 
 import { StackNavigator } from 'react-navigation';
 import Checkbox from 'react-native-custom-checkbox';
-
+let value = false;
 export default class Login extends React.Component {
   constructor(props){
     super(props);
@@ -45,7 +45,6 @@ export default class Login extends React.Component {
     return(
 
 
-    <ImageBackground style={styles.background} source={require('./images/dmec.png')}  >
     <View style={styles.blacklayer}>
       <View style={styles.form}>
 
@@ -152,7 +151,6 @@ export default class Login extends React.Component {
 
     </View>
     </View>
-     </ImageBackground>
 
 
     );
@@ -191,8 +189,8 @@ export default class Login extends React.Component {
    }
 
    register = ()=>{
-       
-       this.props.navigation.navigate('Register')
+
+       this.props.callbackFromParent(value);
 
    }
 
@@ -267,12 +265,9 @@ const styles =StyleSheet.create({
           fontSize:21,
           color:"#fff"
     },
-    background:{
-        flex: 1,
 
-    },
     blacklayer:{
-        backgroundColor:'rgba(0,0,0,0.6)',
+        //backgroundColor:'rgba(0,0,0,0.6)',
         flex:1,
         //alignItems:'center',
         //justifyContent:'center',
