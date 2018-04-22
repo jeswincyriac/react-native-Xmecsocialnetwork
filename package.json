@@ -15,8 +15,10 @@
     "react-native-datepicker": "^1.7.1",
     "react-native-display": "^1.0.8",
     "react-native-keyboard-aware-scroll-view": "^0.5.0",
+    "react-native-picker": "^4.3.5",
     "react-native-relative-units": "0.0.4",
-    "react-navigation": "^1.1.2"
+    "react-navigation": "^1.1.2",
+    "react-year-picker": "^0.3.7"
   },
   "devDependencies": {
     "babel-jest": "22.2.2",

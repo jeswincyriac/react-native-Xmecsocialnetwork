@@ -3,6 +3,7 @@ import{
     StyleSheet,
     View,
     ImageBackground,
+    TouchableOpacity,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Login from './Login.js';
@@ -24,11 +25,14 @@ export default class Loginm extends React.Component {
       return(
           <ImageBackground style={styles.background} source={require('./images/dmec.png')}  >
              <Display enable={this.state.loginenable} style={{flex:1}}>
-                  <Login callbackFromParent={this.myCallback}/>
+                  <Login callbackFromParent={this.myCallback}
+                          nest={this.props.navigation.navigate}/>
              </Display>
              <Display enable={!this.state.loginenable} style={{flex:1}}>
-                  <Register/>
+                  <Register  callbackFromParent={this.myCallback}
+                  nest={this.props.navigation.navigate}/>
              </Display>
+
 
           </ImageBackground>
 

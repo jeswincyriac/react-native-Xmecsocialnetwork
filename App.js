@@ -13,9 +13,10 @@ import {
 import { StackNavigator } from 'react-navigation';
 
 import Loginm from './android/app/components/Loginm.js';
+import Profile from './android/app/components/Profile.js';
 const Application =StackNavigator({
   Home:{screen:Loginm},
- // Register:{screen:Register}
+  Profile:{screen:Profile}
 },{
   navigationOptions:{
     header:false,

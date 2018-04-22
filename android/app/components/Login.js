@@ -21,7 +21,7 @@ import {
 
 import { StackNavigator } from 'react-navigation';
 import Checkbox from 'react-native-custom-checkbox';
-let value = false;
+let valuelog = false;
 export default class Login extends React.Component {
   constructor(props){
     super(props);
@@ -37,7 +37,7 @@ export default class Login extends React.Component {
   _loadInitialState =async () =>{
     var value = await AsyncStorage.getItem('user');
     if (value !== null){
-       this.props.navigation.navigate('Profile');
+       this.props.nest("Profile");
     }
 
   }
@@ -156,6 +156,8 @@ export default class Login extends React.Component {
     );
   }
  login = () => {
+         this.props.nest("Profile");
+      // this.props.navigation.navigate('Profile')
     // alert('test');
     /*------fetch request  to be tested with a backend server running
       fetch('http://ip;port/path', {
@@ -185,12 +187,12 @@ export default class Login extends React.Component {
 
 
      */
-     alert('profile not created');
+    // alert('profile not created');
    }
 
    register = ()=>{
 
-       this.props.callbackFromParent(value);
+       this.props.callbackFromParent(valuelog);
 
    }
 
