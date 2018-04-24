@@ -1,0 +1,467 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _react2 = require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = require(_dependencyMap[1], "./../../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "/media/jeswin/Lectures and Files/web devl/xmec/frontend/SocialNetworkApp/android/app/components/Login.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = require(_dependencyMap[2], "react-native");
+
+  var _reactNavigation = require(_dependencyMap[3], "react-navigation");
+
+  var _reactNativeCustomCheckbox = require(_dependencyMap[4], "react-native-custom-checkbox");
+
+  var _reactNativeCustomCheckbox2 = _interopRequireDefault(_reactNativeCustomCheckbox);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var regeneratorRuntime = require(_dependencyMap[5], "regenerator-runtime");
+
+  var _components = {
+    Login: {
+      displayName: "Login"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "/media/jeswin/Lectures and Files/web devl/xmec/frontend/SocialNetworkApp/android/app/components/Login.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var valuelog = false;
+
+  var Login = _wrapComponent("Login")(function (_React$Component) {
+    _inherits(Login, _React$Component);
+
+    function Login(props) {
+      var _this2 = this;
+
+      _classCallCheck(this, Login);
+
+      var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+      _this._loadInitialState = function _callee() {
+        var value;
+        return regeneratorRuntime.async(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('user'));
+
+              case 2:
+                value = _context.sent;
+
+                if (value !== null) {
+                  _this.props.nest("Profile");
+                }
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, null, _this2);
+      };
+
+      _this.login = function () {
+        _this.props.nest("Profile");
+      };
+
+      _this.register = function () {
+        _this.props.callbackFromParent(valuelog);
+      };
+
+      _this.state = {
+        username: '',
+        password: ''
+      };
+      return _this;
+    }
+
+    _createClass(Login, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        this._loadInitialState().done();
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this3 = this;
+
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: styles.blacklayer,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.View,
+            {
+              style: styles.form,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 49
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              {
+                style: styles.loginuser,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 51
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.View,
+                {
+                  style: styles.imagecontainer,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 52
+                  }
+                },
+                _react3.default.createElement(_reactNative.Image, {
+                  style: styles.icon,
+                  source: require(_dependencyMap[6], './images/user-shape.png'),
+                  resizeMode: "contain",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 53
+                  }
+                })
+              ),
+              _react3.default.createElement(_reactNative.TextInput, {
+                style: styles.textInput,
+                placeholder: "Username",
+                placeholderTextColor: "rgba(255,255,255,0.7)",
+                onChangeText: function onChangeText(username) {
+                  return _this3.setState({
+                    username: username
+                  });
+                },
+                fontStyle: this.state.username.length == 0 ? 'italic' : 'normal',
+                underlineColorAndroid: "transparent",
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 56
+                }
+              })
+            ),
+            _react3.default.createElement(
+              _reactNative.View,
+              {
+                style: styles.loginuser,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 65
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.View,
+                {
+                  style: styles.imagecontainer,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 66
+                  }
+                },
+                _react3.default.createElement(_reactNative.Image, {
+                  style: styles.icon,
+                  source: require(_dependencyMap[7], './images/padlock.png'),
+                  resizeMode: "contain",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 67
+                  }
+                })
+              ),
+              _react3.default.createElement(_reactNative.TextInput, {
+                style: styles.textInput,
+                placeholder: "Password",
+                placeholderTextColor: "rgba(255,255,255,0.7)",
+                onChangeText: function onChangeText(password) {
+                  return _this3.setState({
+                    password: password
+                  });
+                },
+                fontStyle: this.state.password.length == 0 ? 'italic' : 'normal',
+                underlineColorAndroid: "transparent",
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 70
+                }
+              })
+            ),
+            _react3.default.createElement(
+              _reactNative.View,
+              {
+                style: styles.check,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 80
+                }
+              },
+              _react3.default.createElement(_reactNativeCustomCheckbox2.default, {
+                style: {
+                  backgroundColor: 'rgba(168,168,168,.7)',
+                  color: 'rgba(0,0,0,1)',
+                  borderRadius: 5
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 82
+                }
+              }),
+              _react3.default.createElement(
+                _reactNative.Text,
+                {
+                  style: {
+                    alignItems: "center",
+                    color: "rgba(168,168,168,1)"
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 87
+                  }
+                },
+                "Remember me"
+              )
+            ),
+            _react3.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                style: styles.btn,
+                onPress: this.login,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 95
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.Text,
+                {
+                  style: styles.log,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 98
+                  }
+                },
+                "Log in"
+              )
+            ),
+            _react3.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                style: styles.border,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 101
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.Text,
+                {
+                  style: {
+                    color: '#fff',
+                    textDecorationLine: 'underline',
+                    fontStyle: 'italic'
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 102
+                  }
+                },
+                "Forgot Password ?"
+              )
+            )
+          ),
+          _react3.default.createElement(
+            _reactNative.View,
+            {
+              style: {
+                flex: 1,
+                justifyContent: "flex-end"
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 109
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              {
+                style: {
+                  flexDirection: "row",
+                  justifyContent: "space-around"
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 116
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                {
+                  style: styles.guestcontainer,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 123
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  {
+                    style: {
+                      color: 'rgba(255,255,255,.7)',
+                      fontSize: 19
+                    },
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 124
+                    }
+                  },
+                  "Guest Login"
+                )
+              ),
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                {
+                  style: styles.guestcontainer,
+                  onPress: this.register,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 134
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  {
+                    style: {
+                      color: 'rgba(255,255,255,0.7)',
+                      fontSize: 20
+                    },
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 136
+                    }
+                  },
+                  "Register"
+                )
+              )
+            )
+          )
+        );
+      }
+    }]);
+
+    return Login;
+  }(_react3.default.Component));
+
+  exports.default = Login;
+
+  var styles = _reactNative.StyleSheet.create({
+    header: {
+      fontSize: 24,
+      marginBottom: 60,
+      color: '#fff',
+      fontWeight: 'bold'
+    },
+    textInput: {
+      alignSelf: 'stretch',
+      backgroundColor: 'rgba(0,0,0,0.7)',
+      color: '#fff',
+      width: 230,
+      height: 50,
+      fontSize: 18
+    },
+    btn: {
+      width: 225,
+      backgroundColor: '#0099FF',
+      padding: 15,
+      alignItems: 'center',
+      marginTop: 20,
+      borderRadius: 100
+    },
+    loginuser: {
+      flexDirection: 'row',
+      marginTop: 15
+    },
+    icon: {
+      height: 30
+    },
+    imagecontainer: {
+      paddingBottom: 10,
+      paddingTop: 10,
+      backgroundColor: 'rgba(0,0,0,0.7)'
+    },
+    check: {
+      width: 300,
+      flexDirection: 'row',
+      marginTop: 5
+    },
+    checkbox: {
+      backgroundColor: "#4fc3f7",
+      borderRadius: 50
+    },
+    log: {
+      fontWeight: 'bold',
+      fontSize: 21,
+      color: "#fff"
+    },
+    blacklayer: {
+      flex: 1
+    },
+    border: {
+      marginTop: 10
+    },
+    guest: {
+      width: 50,
+      height: 50,
+      marginTop: 10,
+      marginRight: 10
+    },
+    form: {
+      alignItems: 'center',
+      marginTop: 200
+    },
+    guestcontainer: {
+      backgroundColor: "rgba(0,0,0,.8)",
+      height: 60,
+      flexDirection: "row",
+      borderRadius: 100,
+      width: 180,
+      justifyContent: "center",
+      alignItems: "center",
+      marginBottom: 15
+    }
+  });
+});

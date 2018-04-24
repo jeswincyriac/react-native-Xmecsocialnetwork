@@ -9,8 +9,9 @@ import {
   Picker,
 
 } from 'react-native';
+
 var {bp, vw, vh} = require('react-native-relative-units')(375);
-import DatePicker from 'react-native-datepicker'
+import DatePicker from 'react-native-datepicker';
 let valuelog = true;
 export default class Register extends React.Component {
     constructor(props){
@@ -149,12 +150,9 @@ export default class Register extends React.Component {
             <TouchableOpacity  style={styles.register}
                       onPress={this.register}  >
                     <Text style={{
-                        color:'rgba(255,255,255,0.7)',
-                        //fontWeight:"bold",
-                        fontSize:20,
-
-                       // alignItems:'center',
-                       // justifyContent:'center'
+                        fontWeight:'bold',
+                        fontSize:21,
+                        color:"#fff"
                               }}>Register</Text>
             </TouchableOpacity>
             <View style={{
@@ -225,7 +223,7 @@ const styles =StyleSheet.create({
 
  },
  register:{
-     backgroundColor:"rgba(0,0,0,.8)",
+     backgroundColor:"#0099FF",
      //marginTop:100,
      height:60,
      flexDirection:"row",

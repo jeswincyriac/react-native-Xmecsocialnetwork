@@ -1,0 +1,34 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _BottomNavigation = require(_dependencyMap[0], "./lib/BottomNavigation");
+
+  Object.defineProperty(exports, "default", {
+    enumerable: true,
+    get: function get() {
+      return _interopRequireDefault(_BottomNavigation).default;
+    }
+  });
+
+  var _Tab = require(_dependencyMap[1], "./lib/Tab");
+
+  Object.defineProperty(exports, "Tab", {
+    enumerable: true,
+    get: function get() {
+      return _interopRequireDefault(_Tab).default;
+    }
+  });
+
+  var _NavigationComponent = require(_dependencyMap[2], "./lib/NavigationComponent");
+
+  Object.defineProperty(exports, "NavigationComponent", {
+    enumerable: true,
+    get: function get() {
+      return _interopRequireDefault(_NavigationComponent).default;
+    }
+  });
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+});

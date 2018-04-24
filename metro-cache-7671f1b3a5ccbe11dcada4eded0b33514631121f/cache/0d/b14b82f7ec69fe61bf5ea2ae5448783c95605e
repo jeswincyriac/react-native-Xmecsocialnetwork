@@ -1,0 +1,150 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _react2 = require(_dependencyMap[0], "react");
+
+    var _react3 = _interopRequireDefault(_react2);
+
+    var _index = require(_dependencyMap[1], "./../../../node_modules/react-transform-hmr/lib/index.js");
+
+    var _index2 = _interopRequireDefault(_index);
+
+    var _jsxFileName = "/media/jeswin/Lectures and Files/web devl/xmec/frontend/SocialNetworkApp/android/app/components/Loginm.js";
+
+    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _reactNative = require(_dependencyMap[2], "react-native");
+
+    var _reactNavigation = require(_dependencyMap[3], "react-navigation");
+
+    var _Login = require(_dependencyMap[4], "./Login.js");
+
+    var _Login2 = _interopRequireDefault(_Login);
+
+    var _Register = require(_dependencyMap[5], "./Register.js");
+
+    var _Register2 = _interopRequireDefault(_Register);
+
+    var _reactNativeDisplay = require(_dependencyMap[6], "react-native-display");
+
+    var _reactNativeDisplay2 = _interopRequireDefault(_reactNativeDisplay);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    var _components = {
+        Loginm: {
+            displayName: "Loginm"
+        }
+    };
+
+    var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+        filename: "/media/jeswin/Lectures and Files/web devl/xmec/frontend/SocialNetworkApp/android/app/components/Loginm.js",
+        components: _components,
+        locals: [module],
+        imports: [_react3.default]
+    });
+
+    function _wrapComponent(id) {
+        return function (Component) {
+            return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+        };
+    }
+
+    var Loginm = _wrapComponent("Loginm")(function (_React$Component) {
+        _inherits(Loginm, _React$Component);
+
+        function Loginm(props) {
+            _classCallCheck(this, Loginm);
+
+            var _this = _possibleConstructorReturn(this, (Loginm.__proto__ || Object.getPrototypeOf(Loginm)).call(this, props));
+
+            _this.myCallback = function (dataFromChild) {
+                _this.setState({
+                    loginenable: dataFromChild
+                });
+            };
+
+            _this.state = {
+                loginenable: true
+            };
+            return _this;
+        }
+
+        _createClass(Loginm, [{
+            key: "render",
+            value: function render() {
+                return _react3.default.createElement(
+                    _reactNative.ImageBackground,
+                    {
+                        style: styles.background,
+                        source: require(_dependencyMap[7], './images/dmec.png'),
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 26
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNativeDisplay2.default,
+                        {
+                            enable: this.state.loginenable,
+                            style: {
+                                flex: 1
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 27
+                            }
+                        },
+                        _react3.default.createElement(_Login2.default, {
+                            callbackFromParent: this.myCallback,
+                            nest: this.props.navigation.navigate,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 28
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNativeDisplay2.default,
+                        {
+                            enable: !this.state.loginenable,
+                            style: {
+                                flex: 1
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 31
+                            }
+                        },
+                        _react3.default.createElement(_Register2.default, {
+                            callbackFromParent: this.myCallback,
+                            nest: this.props.navigation.navigate,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 32
+                            }
+                        })
+                    )
+                );
+            }
+        }]);
+
+        return Loginm;
+    }(_react3.default.Component));
+
+    exports.default = Loginm;
+
+    var styles = _reactNative.StyleSheet.create({
+        background: {
+            flex: 1
+        }
+    });
+});

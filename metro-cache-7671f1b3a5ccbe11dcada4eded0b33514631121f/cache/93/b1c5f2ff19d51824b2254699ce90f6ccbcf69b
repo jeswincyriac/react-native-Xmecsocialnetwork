@@ -1,0 +1,30 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+    'use strict';
+
+    var _require = require(_dependencyMap[0], 'react-native'),
+        Dimensions = _require.Dimensions;
+
+    var dimensions = Dimensions.get('window');
+
+    function Units(baseSize) {
+        this.vw = dimensions.width / 100;
+        this.vh = dimensions.height / 100;
+        this.bp = (dimensions.width / baseSize).toFixed(2) * 1;
+
+        this.fr = function (num) {
+            return Math.floor(num);
+        };
+
+        this.cl = function (num) {
+            return Math.ceil(num);
+        };
+
+        this.r = function (num) {
+            return Math.round(num);
+        };
+    }
+
+    module.exports = function (baseSize) {
+        return new Units(baseSize);
+    };
+});

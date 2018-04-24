@@ -1,0 +1,12 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+	module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+		"__packager_asset": true,
+		"httpServerLocation": "/assets/android/app/components/images",
+		"width": 853,
+		"height": 1280,
+		"scales": [1],
+		"hash": "a98b05864be93672619c84607dc3659f",
+		"name": "dmec",
+		"type": "png"
+	});
+});

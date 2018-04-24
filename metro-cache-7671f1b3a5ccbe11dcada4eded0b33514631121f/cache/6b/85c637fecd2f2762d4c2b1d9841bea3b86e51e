@@ -1,0 +1,172 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+    var _react2 = require(_dependencyMap[0], "react");
+
+    var _react3 = _interopRequireDefault(_react2);
+
+    var _index = require(_dependencyMap[1], "./../react-transform-hmr/lib/index.js");
+
+    var _index2 = _interopRequireDefault(_index);
+
+    var _jsxFileName = "/media/jeswin/Lectures and Files/web devl/xmec/frontend/SocialNetworkApp/node_modules/react-native-custom-checkbox/Checkbox.js";
+
+    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _propTypes = require(_dependencyMap[2], "prop-types");
+
+    var _propTypes2 = _interopRequireDefault(_propTypes);
+
+    var _reactNative = require(_dependencyMap[3], "react-native");
+
+    var _FontAwesome = require(_dependencyMap[4], "react-native-vector-icons/FontAwesome");
+
+    var _FontAwesome2 = _interopRequireDefault(_FontAwesome);
+
+    var _underscore = require(_dependencyMap[5], "underscore");
+
+    var _underscore2 = _interopRequireDefault(_underscore);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    var _components = {
+        Checkbox: {
+            displayName: "Checkbox"
+        }
+    };
+
+    var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+        filename: "/media/jeswin/Lectures and Files/web devl/xmec/frontend/SocialNetworkApp/node_modules/react-native-custom-checkbox/Checkbox.js",
+        components: _components,
+        locals: [module],
+        imports: [_react3.default]
+    });
+
+    function _wrapComponent(id) {
+        return function (Component) {
+            return _reactTransformHmrLibIndexJs2(Component, id);
+        };
+    }
+
+    var BACKGROUND_COLOR, BORDER_RADIUS, BORDER_WIDTH, COLOR, MARGIN, SIZE, BORDER_COLOR;
+
+    var Checkbox = _wrapComponent("Checkbox")(function (_Component) {
+        _inherits(Checkbox, _Component);
+
+        function Checkbox(props) {
+            _classCallCheck(this, Checkbox);
+
+            var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+
+            _this.state = {
+                backgroundColor: '#FFF',
+                borderRadius: 0,
+                borderWidth: 2,
+                checked: false,
+                color: '#000',
+                margin: 2,
+                name: '',
+                onChange: null,
+                size: 20,
+                borderColor: '#000'
+            };
+            return _this;
+        }
+
+        _createClass(Checkbox, [{
+            key: "componentDidMount",
+            value: function componentDidMount() {
+                this.setState(_underscore2.default.extend({}, this.props.style, _underscore2.default.omit(this.props, 'style')));
+            }
+        }, {
+            key: "componentWillReceiveProps",
+            value: function componentWillReceiveProps(nextProps) {
+                this.props = nextProps;
+                this.setState({
+                    checked: nextProps.checked
+                });
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                var _this2 = this;
+
+                BACKGROUND_COLOR = this.state.backgroundColor;
+                BORDER_RADIUS = this.state.borderRadius;
+                BORDER_WIDTH = this.state.borderWidth;
+                COLOR = this.state.color;
+                MARGIN = this.state.margin;
+                SIZE = this.state.size;
+                BORDER_COLOR = this.state.borderColor;
+                return _react3.default.createElement(
+                    _reactNative.TouchableHighlight,
+                    {
+                        underlayColor: "transparent",
+                        onPress: function onPress() {
+                            _this2._toggleCheck();
+                        },
+                        style: {
+                            backgroundColor: BACKGROUND_COLOR,
+                            borderColor: BORDER_COLOR,
+                            borderRadius: BORDER_RADIUS,
+                            borderWidth: BORDER_WIDTH,
+                            height: SIZE,
+                            margin: MARGIN,
+                            width: SIZE
+                        },
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 46
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        {
+                            style: {
+                                flex: 1,
+                                alignItems: 'center'
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 51
+                            }
+                        },
+                        this.state.checked && _react3.default.createElement(_FontAwesome2.default, {
+                            name: "check",
+                            size: SIZE - 5,
+                            color: COLOR,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 53
+                            }
+                        })
+                    )
+                );
+            }
+        }, {
+            key: "_toggleCheck",
+            value: function _toggleCheck() {
+                var checked = !this.state.checked;
+                this.setState({
+                    checked: checked
+                });
+                this.props.onChange && this.props.onChange(this.props.name, checked);
+            }
+        }]);
+
+        return Checkbox;
+    }(_react2.Component));
+
+    Checkbox.propTypes = {
+        checked: _propTypes2.default.bool,
+        name: _propTypes2.default.string,
+        onChange: _propTypes2.default.func,
+        size: _propTypes2.default.number,
+        style: _propTypes2.default.object
+    };
+    module.exports = Checkbox;
+});

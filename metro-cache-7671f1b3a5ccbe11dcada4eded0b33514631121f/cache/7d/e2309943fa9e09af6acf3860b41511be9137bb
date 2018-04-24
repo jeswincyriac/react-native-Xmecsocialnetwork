@@ -1,0 +1,12 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+    "__packager_asset": true,
+    "httpServerLocation": "/assets/node_modules/react-native-datepicker",
+    "width": 64,
+    "height": 64,
+    "scales": [1],
+    "hash": "1edd5017f455b09c608e175b1285c06d",
+    "name": "date_icon",
+    "type": "png"
+  });
+});

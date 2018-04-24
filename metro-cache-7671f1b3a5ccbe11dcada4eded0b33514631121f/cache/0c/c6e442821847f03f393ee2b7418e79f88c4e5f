@@ -1,0 +1,409 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _react2 = require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = require(_dependencyMap[1], "./../../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "/media/jeswin/Lectures and Files/web devl/xmec/frontend/SocialNetworkApp/android/app/components/Register.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = require(_dependencyMap[2], "react-native");
+
+  var _reactNativeDatepicker = require(_dependencyMap[3], "react-native-datepicker");
+
+  var _reactNativeDatepicker2 = _interopRequireDefault(_reactNativeDatepicker);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    Register: {
+      displayName: "Register"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "/media/jeswin/Lectures and Files/web devl/xmec/frontend/SocialNetworkApp/android/app/components/Register.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var _require = require(_dependencyMap[4], 'react-native-relative-units')(375),
+      bp = _require.bp,
+      vw = _require.vw,
+      vh = _require.vh;
+
+  var valuelog = true;
+
+  var Register = _wrapComponent("Register")(function (_React$Component) {
+    _inherits(Register, _React$Component);
+
+    function Register(props) {
+      _classCallCheck(this, Register);
+
+      var _this = _possibleConstructorReturn(this, (Register.__proto__ || Object.getPrototypeOf(Register)).call(this, props));
+
+      _this.login = function () {
+        _this.props.callbackFromParent(valuelog);
+      };
+
+      _this.register = function () {
+        _this.props.nest("Profile");
+      };
+
+      _this.state = {
+        date: "",
+        batch: ""
+      };
+      return _this;
+    }
+
+    _createClass(Register, [{
+      key: "render",
+      value: function render() {
+        var _this2 = this;
+
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: styles.wrapper,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 35
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.View,
+            {
+              style: styles.form,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 36
+              }
+            },
+            _react3.default.createElement(_reactNative.TextInput, {
+              style: styles.textInput,
+              placeholder: "Name(As in college records)",
+              placeholderTextColor: "rgba(255,255,255,0.7)",
+              underlineColorAndroid: "black",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 38
+              }
+            }),
+            _react3.default.createElement(_reactNative.TextInput, {
+              style: styles.textInput,
+              placeholder: "Email ",
+              placeholderTextColor: "rgba(255,255,255,0.7)",
+              underlineColorAndroid: "black",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 45
+              }
+            }),
+            _react3.default.createElement(_reactNative.TextInput, {
+              style: styles.textInput,
+              placeholder: "rollnumber",
+              placeholderTextColor: "rgba(255,255,255,0.7)",
+              underlineColorAndroid: "black",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 52
+              }
+            }),
+            _react3.default.createElement(_reactNativeDatepicker2.default, {
+              style: {
+                width: 200
+              },
+              mode: "date",
+              placeholder: "Date Of Birth",
+              date: this.state.date,
+              format: "YYYY-MM-DD",
+              minDate: "2016-05-01",
+              maxDate: "2016-06-01",
+              confirmBtnText: "Confirm",
+              cancelBtnText: "Cancel",
+              customStyles: {
+                dateIcon: {
+                  position: 'absolute',
+                  left: 0,
+                  top: 4,
+                  marginLeft: 0
+                },
+                dateInput: {
+                  marginLeft: 36
+                },
+                dateText: {
+                  color: '#fff'
+                }
+              },
+              onDateChange: function onDateChange(date) {
+                _this2.setState({
+                  date: date
+                });
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 61
+              }
+            }),
+            _react3.default.createElement(_reactNativeDatepicker2.default, {
+              style: {
+                width: 200
+              },
+              mode: "date",
+              placeholder: "passout year couldnt find an year picker may use number picker",
+              date: this.state.date,
+              format: "YYYY-MM-DD",
+              minDate: "2016-05-01",
+              maxDate: "2016-06-01",
+              confirmBtnText: "Confirm",
+              cancelBtnText: "Cancel",
+              customStyles: {
+                dateIcon: {
+                  position: 'absolute',
+                  left: 0,
+                  top: 4,
+                  marginLeft: 0,
+                  backgroundColor: 'rgba(0,0,0,0.7)'
+                },
+                dateInput: {
+                  marginLeft: 36,
+                  backgroundColor: 'rgba(0,0,0,0.7)'
+                },
+                dateText: {
+                  color: '#fff'
+                }
+              },
+              onDateChange: function onDateChange(date) {
+                _this2.setState({
+                  date: date
+                });
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 89
+              }
+            }),
+            _react3.default.createElement(
+              _reactNative.View,
+              {
+                style: {
+                  flexDirection: 'row',
+                  height: 50,
+                  alignItems: 'center'
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 118
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.Text,
+                {
+                  style: {
+                    color: "#fff"
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 125
+                  }
+                },
+                "Branch  "
+              ),
+              _react3.default.createElement(
+                _reactNative.Picker,
+                {
+                  selectedValue: this.state.batch,
+                  style: {
+                    height: 20,
+                    width: 150,
+                    color: "#000",
+                    backgroundColor: "#fff"
+                  },
+                  onValueChange: function onValueChange(itemValue, itemIndex) {
+                    return _this2.setState({
+                      batch: itemValue
+                    });
+                  },
+                  mode: "dropdown",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 127
+                  }
+                },
+                _react3.default.createElement(_reactNative.Picker.Item, {
+                  label: "-select-",
+                  value: "NULL",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 135
+                  }
+                }),
+                _react3.default.createElement(_reactNative.Picker.Item, {
+                  label: "CS",
+                  value: "CS",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 136
+                  }
+                }),
+                _react3.default.createElement(_reactNative.Picker.Item, {
+                  label: "EC",
+                  value: "EC",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 137
+                  }
+                }),
+                _react3.default.createElement(_reactNative.Picker.Item, {
+                  label: "EEE",
+                  value: "EEE",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 138
+                  }
+                }),
+                _react3.default.createElement(_reactNative.Picker.Item, {
+                  label: "EB",
+                  value: "EB",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 139
+                  }
+                })
+              )
+            )
+          ),
+          _react3.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: styles.register,
+              onPress: this.register,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 150
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                style: {
+                  color: 'rgba(255,255,255,0.7)',
+                  fontSize: 20
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 152
+                }
+              },
+              "Register"
+            )
+          ),
+          _react3.default.createElement(
+            _reactNative.View,
+            {
+              style: {
+                width: 100 * vw,
+                justifyContent: "flex-end",
+                flex: 1,
+                backgroundColor: 'rgba(255,255,255,0)'
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 161
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                style: {
+                  backgroundColor: "rgba(0,0,0,.5)",
+                  height: 40,
+                  width: 100 * vw,
+                  justifyContent: "center",
+                  alignItems: "center"
+                },
+                onPress: this.login,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 169
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.Text,
+                {
+                  style: {
+                    color: "#fff",
+                    fontSize: 20
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 179
+                  }
+                },
+                "Already Registered? Login"
+              )
+            )
+          )
+        );
+      }
+    }]);
+
+    return Register;
+  }(_react3.default.Component));
+
+  exports.default = Register;
+
+  var styles = _reactNative.StyleSheet.create({
+    wrapper: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    form: {
+      width: 250,
+      justifyContent: "space-around",
+      marginTop: vh * 25,
+      backgroundColor: 'rgba(0,0,0,0.7)'
+    },
+    textInput: {
+      alignSelf: 'stretch',
+      color: '#fff',
+      height: 50,
+      fontSize: 18,
+      marginTop: 10,
+      backgroundColor: 'rgba(0,0,0,0.7)'
+    },
+    register: {
+      backgroundColor: "rgba(0,0,0,.8)",
+      height: 60,
+      flexDirection: "row",
+      borderRadius: 100,
+      width: 180,
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: 20
+    }
+  });
+});
