@@ -12,7 +12,7 @@ import {
 
             <View>
 
-              <Text>Account</Text>
+              <Text>Search</Text>
 
             </View>
 
