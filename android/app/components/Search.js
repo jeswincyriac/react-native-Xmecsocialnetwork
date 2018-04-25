@@ -4,8 +4,12 @@ import {
   Text,
   View,
   } from 'react-native';
+  import Icon from 'react-native-vector-icons/MaterialIcons';
 
-  export default class Notification extends React.Component {
+export default class Search extends React.Component {
+      static navigationOptions = {
+         tabBarIcon: () => <Icon size={24} name="search"  />
+      }
 
       render() {
         return(
@@ -19,3 +23,4 @@ import {
 
         );
       }
+  }
