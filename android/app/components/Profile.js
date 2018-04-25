@@ -14,13 +14,14 @@ import { TabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Account from './Account.js';
 import Search from './Search.js';
-import Notification from './Notification.js';
+import Notify from './Notification.js';
 
 const Navigation = TabNavigator(
   {
     Search: { screen: Search },
     Account: { screen: Account},
-    Notify: {screen: Notification }
+    Notify: {screen: Notify},
+
   },
   {
     tabBarComponent: NavigationComponent,
@@ -43,15 +44,20 @@ const Navigation = TabNavigator(
         tabs: {
           Search: {
 
+                    
+                    activeIcon:<Icon size={30} name="search" color="#54AFF5" />
 
           },
           Account: {
 
-
+                     activeIcon:<Icon size={30} name="account-circle" color="#54AFF5" />
           },
-          Notification: {
-
-
+          Notify: {
+                      isBadgeVisible:true,
+                      //badgeStyle:
+                      //badgeText:
+                      badgeSize:10,
+                    activeIcon:<Icon size={30} name="notifications" color="#54AFF5" />
           }
         }
       }

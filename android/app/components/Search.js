@@ -8,7 +8,8 @@ import {
 
 export default class Search extends React.Component {
       static navigationOptions = {
-         tabBarIcon: () => <Icon size={24} name="search"  />
+          tabBarLabel: 'Search',
+         tabBarIcon: () => <Icon size={30} name="search"  />
       }
 
       render() {

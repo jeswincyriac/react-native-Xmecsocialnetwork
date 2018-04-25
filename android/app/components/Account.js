@@ -8,7 +8,8 @@ import {
 
   export default class Account extends React.Component {
       static navigationOptions = {
-         tabBarIcon: () => <Icon size={24} name="account-circle"  />
+          tabBarLabel: 'Account',
+         tabBarIcon: () => <Icon size={30} name="account-circle"  />
       }
       render() {
         return(
