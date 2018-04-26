@@ -7,8 +7,12 @@ import {
   Image,
   ImageBackground,
   } from 'react-native';
+  import{
+      Button
+  } from "react-native-elements";
   import Icon from 'react-native-vector-icons/MaterialIcons';
   import Triangle from 'react-native-triangle';
+  var {bp, vw, vh} = require('react-native-relative-units')(375);
 
   export default class Account extends React.Component {
       static navigationOptions = {
@@ -17,50 +21,122 @@ import {
       }
       render() {
         return(
-
             <View>
-            <View style={styles.headerContainer}>
-                <ImageBackground
-                  style={styles.headerBackgroundImage}
-                  blurRadius={10}
-                  source={
-                    require('./images/backgroundpic.jpg')
-                  }
-                >
-                    <View style={styles.headerColumn}>
-                        <Image
-                          style={styles.userImage}
-                          source={
-                        require('./images/profilepic.jpeg')
-                          }
-                        />
-                    <Text style={styles.userNameText}>My Name</Text>
-                        <View style={styles.userAddressRow}>
-                            <View>
-                                <Icon
-                                  name="place"
-                                  underlayColor="transparent"
-                                  iconStyle={styles.placeIcon}
-                                  onPress={this.onPressPlace}
-                                />
-                            </View>
-                            <View style={styles.userCityRow}>
-                                <Text style={styles.userCityText}>
-                                  my city,my country
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
+                <View style={{
+                        height:vh*10,
+                        width:vw*100,
+                        backgroundColor:"#EEF2FB"
+                    }}>
+                </View>
                 <Triangle
-                      width={90}
-                      height={100}
-                      color={'#D80016'}
-                      direction={'up-left'}
-                      direction={"down-right"}
+                  width={vw*100}
+                  height={vh*25}
+                  color={'#EEF2FB'}
+                  direction={'up-left'}
+                />
+                <Triangle style={{
+                    position:"absolute",
+                    top:vh*10,
+
+                      }}
+                  width={vw*100}
+                  height={vh*25}
+                  color={'#fff'}
+                  direction={'down-right'}
+                />
+
+                <View style={{
+                        height:vh*15,
+                        width:vw*100,
+                        backgroundColor:"#fff"
+                    }}>
+                    <Button
+                          title="Connect"
+                          color="#54AFF5"
+
+
+
+                          buttonStyle={{
+                            backgroundColor: "transparent",
+                            width: 150,
+                            height: 40,
+                            borderColor: "#54AFF5",
+                            borderWidth: 2,
+                            borderRadius: 20,
+                            marginTop:vh*8
+                          }}
+
                     />
+                </View>
+                <View
+                    style={{
+                        position:"absolute",
+                        top:vh*32,
+                        //backgroundColor:"#311b92",
+                        height:60,
+                        width:vw*100,
+                        alignItems:"center",
+                        justifyContent:"center"
+                    }}>
+                        <Text
+                            style={{
+                                fontSize:20,
+                                fontWeight:"bold"
+                            }}>MY NAME</Text>
+                        <View style={{
+                                flexDirection:"row",
+                                justifyContent:"center",
+                                alignItems:"center",
+
+                            }}>
+                            <Text
+                                style={{
+                                    fontSize:15,
+                                }}>Ui Designer  </Text>
+                            <View style={{
+                                    //backgroundColor:"#9E9E9E",
+                                    backgroundColor:"#54AFF5",
+                                    height:15,
+                                    width:2,
+                                    borderRadius:20
+                                }}>
+                            </View>
+                            <Text
+                                style={{
+                                    fontSize:15,
+                                }}>   Company</Text>
+
+                        </View>
+                </View>
+                <Image
+                    style={{
+                        height:vw*30,
+                        width:vw*30,
+                        borderRadius:130,
+                        position:"absolute",
+                        top:vh*12,
+                        left:vw*35
+                    }}
+                    source={
+                        require("./images/profilepic.jpeg")
+                    }>
+
+                </Image>
+                <View
+                    style={{
+                        position:"absolute",
+                        top:vh*32,
+                        backgroundColor:"rgba(0,0,0,0)",
+                    }}
+                    >
+
+                </View>
+
+
+
             </View>
-            </View>
+
+
 
 
         );
