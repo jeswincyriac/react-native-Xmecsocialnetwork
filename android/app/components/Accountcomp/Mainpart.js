@@ -146,7 +146,7 @@ export default class Mainpart extends React.Component {
                       left:vw*35
                   }}
                   source={
-                      require("./images/profilepic.jpeg")
+                      require("../images/profilepic.jpeg")
                   }>
 
               </Image>
