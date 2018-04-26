@@ -6,11 +6,11 @@ import {
   Platform,
   Image,
   ImageBackground,
+  TouchableOpacity,
   } from 'react-native';
-  import{
-      Button
-  } from "react-native-elements";
+
   import Icon from 'react-native-vector-icons/MaterialIcons';
+  import IconE from 'react-native-vector-icons/EvilIcons';
   import Triangle from 'react-native-triangle';
   var {bp, vw, vh} = require('react-native-relative-units')(375);
 
@@ -48,25 +48,57 @@ import {
                 <View style={{
                         height:vh*15,
                         width:vw*100,
-                        backgroundColor:"#fff"
+                        backgroundColor:"#fff",
+                        flexDirection:"row"
                     }}>
-                    <Button
-                          title="Connect"
-                          color="#54AFF5"
+
+                        <TouchableOpacity style={{
+                               backgroundColor: "transparent",
+                               width: 170,
+                               height: 40,
+                               borderColor: "#54AFF5",
+                               borderWidth: 2,
+                               borderRadius: 20,
+                               marginTop:vh*8,
+                               elevation:2,
+                               justifyContent:"center",
+                               alignItems:"center",
+                               position:"absolute",
+                               left:15
+
+                           }}>
+                              <Text style={{
+                                      color:"black",
+                                     fontSize:16
+                                  }}>Connect</Text>
+                          </TouchableOpacity>
 
 
+                         <TouchableOpacity style={{
+                                backgroundColor: "transparent",
+                                width: 170,
+                                height: 40,
+                                borderColor: "#54AFF5",
+                                borderWidth: 2,
+                                borderRadius: 20,
+                                marginTop:vh*8,
+                                elevation:2,
+                                justifyContent:"center",
+                                alignItems:"center",
+                                position:"absolute",
+                                right:15,
+                                flexDirection:"row",
 
-                          buttonStyle={{
-                            backgroundColor: "transparent",
-                            width: 150,
-                            height: 40,
-                            borderColor: "#54AFF5",
-                            borderWidth: 2,
-                            borderRadius: 20,
-                            marginTop:vh*8
-                          }}
+                            }}>
+                            <IconE name="sc-linkedin" size={40} color="#0077B5"/>
+                               <Text style={{
+                                       color:"black"
+                                   }}>View Linkedin</Text>
 
-                    />
+
+                           </TouchableOpacity>
+
+
                 </View>
                 <View
                     style={{

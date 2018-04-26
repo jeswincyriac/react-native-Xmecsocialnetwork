@@ -44,7 +44,7 @@ const Navigation = TabNavigator(
         tabs: {
           Search: {
 
-                    
+
                     activeIcon:<Icon size={30} name="search" color="#54AFF5" />
 
           },
