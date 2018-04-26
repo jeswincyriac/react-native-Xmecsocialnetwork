@@ -59,6 +59,7 @@ export default class Login extends React.Component {
                   onChangeText={(username) => this.setState({username})}
                   fontStyle={this.state.username.length == 0 ? 'italic' : 'normal'}
                   underlineColorAndroid='transparent'
+
                 />
           </View>
 
@@ -73,6 +74,7 @@ export default class Login extends React.Component {
                   onChangeText={(password) => this.setState({password})}
                   fontStyle={this.state.password.length == 0 ? 'italic' : 'normal'}
                   underlineColorAndroid='transparent'
+                 
                 />
             </View>
 
@@ -233,6 +235,7 @@ const styles =StyleSheet.create({
       alignItems: 'center',
       marginTop:20,
       borderRadius:100,
+      elevation:2,
     },
     loginuser: {
 
@@ -304,6 +307,7 @@ const styles =StyleSheet.create({
         justifyContent:"center",
        alignItems:"center",
        marginBottom:15,
+       elevation:2,
 
     }
 });
