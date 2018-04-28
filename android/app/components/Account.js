@@ -9,7 +9,7 @@ import {
   } from 'react-native';
   var {bp, vw, vh} = require('react-native-relative-units')(375);
   import About from './Accountcomp/About.js';
-  import Contacts from './Accountcomp/Contacts.js';
+  
   import Work from './Accountcomp/Work.js';
   import Education from './Accountcomp/Education.js';
 
@@ -47,7 +47,7 @@ import {
                       <About/>
 
                       <Work/>
-                      <Contacts/>
+
                       <Education/>
 
                  </View>
