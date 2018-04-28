@@ -64,14 +64,14 @@ export default class Mainpart extends React.Component {
 
                          }}>
                             <Text style={{
-                                    color:"black",
+                                    color:"rgba(0,0,0,0.87)",
                                    fontSize:16
                                 }}>Connect</Text>
                         </TouchableOpacity>
 
 
                        <TouchableOpacity style={{
-                              backgroundColor: "transparent",
+
                               width: 170,
                               height: 40,
                               borderColor: "#54AFF5",
@@ -88,7 +88,7 @@ export default class Mainpart extends React.Component {
                           }}>
                           <IconE name="sc-linkedin" size={40} color="#0077B5"/>
                              <Text style={{
-                                     color:"black"
+                                     color:"rgba(0,0,0,.87)"
                                  }}>View Linkedin</Text>
 
 
@@ -109,7 +109,8 @@ export default class Mainpart extends React.Component {
                       <Text
                           style={{
                               fontSize:20,
-                              fontWeight:"bold"
+                              fontWeight:"bold",
+                              color:"rgba(0,0,0,.87)"
                           }}>MY NAME</Text>
                       <View style={{
                               flexDirection:"row",

@@ -17,7 +17,11 @@ export default class Search extends React.Component {
       render() {
         return(
 
-            <View>
+            <View style={{
+                    backgroundColor:"#54AFF5",
+                    flex:1
+                }}>
+
 
               <Text>Search</Text>
 

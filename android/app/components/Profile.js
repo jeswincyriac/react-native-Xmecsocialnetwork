@@ -26,12 +26,14 @@ const Navigation = TabNavigator(
   {
     tabBarComponent: NavigationComponent,
     tabBarPosition: 'bottom',
+    
+    backBehavior:"none",
     tabBarOptions: {
       bottomNavigationOptions: {
 
         rippleColor: 'blue',
         style:{
-                      height:56,
+                      height:48,
                       borderColor:"black",
                       borderWidth: 0.5,
                       elevation:10//apply shadows for both ios and android

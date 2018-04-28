@@ -3,10 +3,19 @@ import {
   StyleSheet,
   Text,
   View,
+  ScrollView,
+  FlatList
 
   } from 'react-native';
+  var {bp, vw, vh} = require('react-native-relative-units')(375);
+  import About from './Accountcomp/About.js';
+  import Contacts from './Accountcomp/Contacts.js';
+  import Work from './Accountcomp/Work.js';
+  import Education from './Accountcomp/Education.js';
+
 
   import Mainpart from "./Accountcomp/Mainpart.js";
+  import Navi from "./Accountcomp/Navi.js";
   import Icon from 'react-native-vector-icons/MaterialIcons';
 
   export default class Account extends React.Component {
@@ -16,9 +25,34 @@ import {
       }
       render() {
         return(
-            <View>
-              <Mainpart/>
-           </View>
+            <ScrollView style={{
+
+                }}>
+                <View style={{
+
+                        //height:vh*120,
+                        flex:1
+
+                    }}>
+                  <Mainpart/>
+
+                 <View style={{
+                          backgroundColor:"#cfd8dc",
+                          //backgroundColor:"#EEF2FB",
+                          flex:1,
+                          padding:16,
+
+
+                      }}>
+                      <About/>
+
+                      <Work/>
+                      <Contacts/>
+                      <Education/>
+
+                 </View>
+                </View>
+            </ScrollView>
         );
       }
 }
