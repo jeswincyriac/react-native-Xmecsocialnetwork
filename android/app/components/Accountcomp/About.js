@@ -47,7 +47,8 @@ import {
                             borderColor:"#cfd8dc",
                             marginTop:24,
                             padding:7
-                        }}>
+                        }}
+                               >
 
                                   <Text style={{
                                             color:"rgba(0,0,0,.87)",
@@ -55,7 +56,7 @@ import {
                                       }}
                                       >Passout Year:</Text>
 
-                    </View>
+                   </View>
                     <View style={{
                             flex:1,
                             borderWidth:1,

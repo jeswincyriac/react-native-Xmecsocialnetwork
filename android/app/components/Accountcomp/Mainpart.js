@@ -109,7 +109,7 @@ export default class Mainpart extends React.Component {
                       <Text
                           style={{
                               fontSize:20,
-                              fontWeight:"bold",
+                              fontFamily:"sans-serif-medium",
                               color:"rgba(0,0,0,.87)"
                           }}>MY NAME</Text>
                       <View style={{
