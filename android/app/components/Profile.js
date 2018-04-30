@@ -17,6 +17,7 @@ import Search from './Search.js';
 import Notify from './Notification.js';
 
 const Navigation = TabNavigator(
+
   {
     Search: { screen: Search },
     Account: { screen: Account},
@@ -26,7 +27,7 @@ const Navigation = TabNavigator(
   {
     tabBarComponent: NavigationComponent,
     tabBarPosition: 'bottom',
-    
+
     backBehavior:"none",
     tabBarOptions: {
       bottomNavigationOptions: {
@@ -55,10 +56,10 @@ const Navigation = TabNavigator(
                      activeIcon:<Icon size={30} name="account-circle" color="#54AFF5" />
           },
           Notify: {
-                      isBadgeVisible:true,
+                      //isBadgeVisible:true,
                       //badgeStyle:
-                      //badgeText:
-                      badgeSize:10,
+                      badgeText:"1",
+                      badgeSize:14,
                     activeIcon:<Icon size={30} name="notifications" color="#54AFF5" />
           }
         }
@@ -69,6 +70,7 @@ const Navigation = TabNavigator(
 
 export default class Profile extends React.Component {
     render() {
+
       return(
                    <Navigation/>
             );

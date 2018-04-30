@@ -20,7 +20,7 @@ import {
 
   export default class Account extends React.Component {
       static navigationOptions = {
-          tabBarLabel: 'Account',
+          tabBarLabel: 'My Account',
          tabBarIcon: () => <Icon size={30} name="account-circle"  />
       }
       render() {

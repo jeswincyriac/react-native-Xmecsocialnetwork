@@ -10,7 +10,8 @@ import {
   export default class Notify extends React.Component {
       static navigationOptions = {
           tabBarLabel: 'Notifications',
-         tabBarIcon: () => <Icon size={30} name="notifications"   />
+         tabBarIcon: () => <Icon size={30} name="notifications"   />,
+
 
       }
       render() {
