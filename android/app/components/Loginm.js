@@ -9,6 +9,7 @@ import { StackNavigator } from 'react-navigation';
 import Login from './Login.js';
 import Register from './Register.js';
 import Display from 'react-native-display';
+
 export default class Loginm extends React.Component {
     constructor(props){
       super(props);
@@ -23,7 +24,8 @@ export default class Loginm extends React.Component {
 
 
       return(
-          <ImageBackground style={styles.background} source={require('./images/dmec.png')}  >
+          <ImageBackground style={styles.background} source={require('./images/backgroundpic.jpg')}
+          blurRadius={5}>
              <Display enable={this.state.loginenable} style={{flex:1}}>
                   <Login callbackFromParent={this.myCallback}
                           nest={this.props.navigation.navigate}/>
@@ -47,6 +49,7 @@ const styles =StyleSheet.create({
     background:{
         flex: 1,
 
+        //overlayColor:"black"
     },
 
 

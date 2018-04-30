@@ -32,7 +32,7 @@ export default class Search extends React.Component {
                          }}>
                       <SearchBar
                         onSearchChange={() => console.log('On Search Change')}
-                        height={50}
+                        height={40}
                         onFocus={() => console.log('On Focus')}
                         onBlur={() => console.log('On Blur')}
                         placeholder={'Search...'}

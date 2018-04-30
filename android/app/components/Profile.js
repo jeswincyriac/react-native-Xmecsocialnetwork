@@ -58,7 +58,7 @@ const Navigation = TabNavigator(
           Notify: {
                       //isBadgeVisible:true,
                       //badgeStyle:
-                      badgeText:"1",
+                      badgeText:"1",// giving false disapperas badge
                       badgeSize:14,
                     activeIcon:<Icon size={30} name="notifications" color="#54AFF5" />
           }
