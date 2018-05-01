@@ -22,6 +22,7 @@
     "react-native-material-design-searchbar": "^1.8.0",
     "react-native-material-textfield": "^0.12.0",
     "react-native-material-textinput": "^1.1.0",
+    "react-native-modal-datetime-picker": "^5.1.0",
     "react-native-picker": "^4.3.5",
     "react-native-relative-units": "0.0.4",
     "react-native-triangle": "0.0.9",
