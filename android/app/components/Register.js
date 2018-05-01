@@ -6,13 +6,15 @@ import {
   TouchableOpacity,
   Picker,
   ScrollView,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
 } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import TextInput from 'react-native-material-textinput';
  import Icon from 'react-native-vector-icons/FontAwesome';
 var {bp, vw, vh} = require('react-native-relative-units')(375);
+import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
 let valuelog = true;
 export default class Register extends React.Component {
@@ -45,7 +47,10 @@ export default class Register extends React.Component {
   render() {
     return(
 
-
+        <TouchableWithoutFeedback onPress={()=>{DismissKeyboard()}}>
+        <View style={{
+            flex:1
+        }}>
          <View style = {{
             // backgroundColor:"rgba(255,255,255,0.5)",
              justifyContent:"center",
@@ -73,6 +78,7 @@ export default class Register extends React.Component {
                   autoCorrect={false}
                  />
             </View>
+
             <View style={{
                 width:vw*80
             }}>
@@ -166,6 +172,7 @@ export default class Register extends React.Component {
 
                  </Picker>
             </View>
+            <KeyboardSpacer />
             <View style={{
                 alignItems:"center",
                 justifyContent:"center",
@@ -226,6 +233,8 @@ export default class Register extends React.Component {
           </TouchableOpacity>
          </View>
 
+         </View>
+         </TouchableWithoutFeedback>
 
     );
     }

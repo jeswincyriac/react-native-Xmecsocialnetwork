@@ -5,11 +5,12 @@ import {
   View,
   Image,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import SearchBar from 'react-native-material-design-searchbar'
 import Suggestorprofile from "./searchcomponents/Suggestorprofile.js"
-
+import DismissKeyboard from 'dismissKeyboard';
 
 export default class Search extends React.Component {
       static navigationOptions = {
@@ -20,7 +21,7 @@ export default class Search extends React.Component {
 
       render() {
         return(
-
+            <TouchableWithoutFeedback onPress={()=>{DismissKeyboard()}}>
             <View style={{
                     backgroundColor:"#ffff",
                     flex:1
@@ -61,13 +62,8 @@ export default class Search extends React.Component {
                           name="Alwin"></Suggestorprofile>
 
 
-
-
-
-
-
             </View>
-
+        </TouchableWithoutFeedback>
 
         );
       }
