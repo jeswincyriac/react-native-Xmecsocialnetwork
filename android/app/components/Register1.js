@@ -41,7 +41,7 @@ export default class Register1 extends React.Component {
 
 
     <View style={{
-        backgroundColor:"rgba(255,255,255,0.5)"
+        //backgroundColor:"rgba(255,255,255,0.5)"
 
     }}>
        <View style={{
@@ -136,17 +136,17 @@ export default class Register1 extends React.Component {
               }}>
 
 
-          <Text style={{color:"rgba(255,255,255,0.8)"}}>Branch  </Text>
+
 
            <Picker
                  selectedValue={this.state.batch}
-                 style={{ height: 20, width: 150 ,
-                           color:"#000",
-                           backgroundColor:"rgba(255,255,255,0.8)"
+                 style={{ height: 20, width: 100 ,
+                           color:"#fff",
+                           //backgroundColor:"rgba(255,255,255,0)"
                            }}
                  onValueChange={(itemValue, itemIndex) => this.setState({batch: itemValue})}
                  mode='dropdown'>
-                 <Picker.Item label="-select-" value="NULL" />
+                 <Picker.Item label="Branch" value="NULL" />
                  <Picker.Item label="CS" value="CS" />
                  <Picker.Item label="EC" value="EC" />
                  <Picker.Item label="EEE" value="EEE" />
@@ -156,7 +156,7 @@ export default class Register1 extends React.Component {
        </View>
        <KeyboardSpacer />
        <View style={{
-           alignItems:"center",
+           alignItems:"flex-end",
            justifyContent:"center",
            marginTop:20
        }}>
@@ -184,7 +184,7 @@ export default class Register1 extends React.Component {
                                    fontFamily:"sanserif-medium",
                                    fontSize:21,
                                    color:"#fff"
-                                         }}>Register</Text>
+                               }}>Next</Text>
                                </View>
                </TouchableOpacity>
        </View>

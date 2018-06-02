@@ -44,13 +44,53 @@ export default class Register extends React.Component {
         }}>
          <View style = {{
             // backgroundColor:"rgba(255,255,255,0.5)",
-             justifyContent:"center",
+             justifyContent:"flex-end",
              alignItems:"center",
              flex:1,
 
          }}  behavior="height">
 
+
          <Register1></Register1>
+         <View style={{
+                // backgroundColor:"#fff",
+                marginBottom:48,
+                height:vh*15,
+                alignSelf:"stretch",
+                justifyContent:"center",
+                alignItems:"center",
+                flexDirection:"row"
+
+             }}>
+                    <View style={{
+                            height:15,
+                            width:15,
+                            borderRadius:160,
+                            borderWidth:1,
+                            borderColor:"#fff",
+                            margin:5
+                        }}>
+                    </View>
+                    <View style={{
+                            height:15,
+                            width:15,
+                            borderRadius:160,
+                            borderWidth:1,
+                            borderColor:"#fff",
+                            margin:5,
+                        }}>
+                    </View>
+                    <View style={{
+                            height:15,
+                            width:15,
+                            borderRadius:160,
+                            borderWidth:1,
+                            borderColor:"#fff",
+                            margin:5
+                        }}>
+                    </View>
+
+         </View>
 
           <TouchableOpacity style={{
                backgroundColor:'rgba(0,0,0,0.3)',
