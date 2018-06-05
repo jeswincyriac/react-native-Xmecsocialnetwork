@@ -22,7 +22,7 @@ class PageStatus extends React.Component {
                              borderWidth:1,
                              borderColor:"#fff",
                              margin:5,
-                             backgroundColor:this.props.states.reg1 ? 'green' : 'red',
+                             backgroundColor: '#fff',
                          }}>
                      </View>
                      <View style={{
@@ -32,6 +32,7 @@ class PageStatus extends React.Component {
                              borderWidth:1,
                              borderColor:"#fff",
                              margin:5,
+                             backgroundColor:(this.props.states.reg == "reg2" || this.props.states.reg == "reg3")  ? '#fff' : 'transparent',
                          }}>
                      </View>
                      <View style={{
@@ -40,7 +41,8 @@ class PageStatus extends React.Component {
                              borderRadius:160,
                              borderWidth:1,
                              borderColor:"#fff",
-                             margin:5
+                             margin:5,
+                             backgroundColor:this.props.states.reg == "reg3" ? '#fff' : 'transparent',
                          }}>
                      </View>
 

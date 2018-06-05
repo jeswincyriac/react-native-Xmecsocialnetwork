@@ -42,7 +42,7 @@ export default class Register extends React.Component {
             flex:1
         }}>
          <View style = {{
-            // backgroundColor:"rgba(255,255,255,0.5)",
+            //backgroundColor:"rgba(255,255,255,0.5)",
              justifyContent:"flex-end",
              alignItems:"center",
              flex:1,
