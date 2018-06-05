@@ -11,6 +11,7 @@ import {
   View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import {createStore} from 'redux';
 
 import Loginm from './android/app/components/Loginm.js';
 import Profile from './android/app/components/Profile.js';

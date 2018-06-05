@@ -13,6 +13,7 @@ import KeyboardSpacer from 'react-native-keyboard-spacer';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import TextInput from 'react-native-material-textinput';
  import Icon from 'react-native-vector-icons/FontAwesome';
+ import DropIcon from 'react-native-vector-icons/MaterialIcons';
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
@@ -140,9 +141,9 @@ export default class Register1 extends React.Component {
 
            <Picker
                  selectedValue={this.state.batch}
-                 style={{ height: 20, width: 100 ,
+                 style={{ height: 20, width: 130 ,
                            color:"#fff",
-                           //backgroundColor:"rgba(255,255,255,0)"
+                          // backgroundColor:"rgba(255,255,255,.1)"
                            }}
                  onValueChange={(itemValue, itemIndex) => this.setState({batch: itemValue})}
                  mode='dropdown'>
@@ -153,6 +154,9 @@ export default class Register1 extends React.Component {
                  <Picker.Item label="EB" value="EB" />
 
             </Picker>
+            <DropIcon name="arrow-drop-down" color="#fff" size={24} style={{
+                //backgroundColor:"#fff"
+            }}></DropIcon>
        </View>
        <KeyboardSpacer />
        <View style={{
