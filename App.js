@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import {createStore} from 'redux';
-
+import {Provider} from "react-redux"
+import allReducers from "./android/app/components/Reducers/index.js"
 import Loginm from './android/app/components/Loginm.js';
 import Profile from './android/app/components/Profile.js';
 const Application =StackNavigator({
@@ -23,10 +24,14 @@ const Application =StackNavigator({
     header:false,
   }
 });
+const store = createStore(allReducers);
 export default class App extends React.Component  {
   render() {
     return (
-      <Application />
+        <Provider store={store}>
+            <Application />
+        </Provider>
+
     );
   }
 }

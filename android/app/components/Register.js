@@ -16,12 +16,13 @@ import TextInput from 'react-native-material-textinput';
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
-import Register1 from './Register1.js';
+import Register1 from './Registercomponents/Register1.js';
+import PageStatus from './Registercomponents/pagestatus.js';
 let valuelog = true;
 export default class Register extends React.Component {
     constructor(props){
       super(props)
-      this.state = {reg1:false}//
+      //this.state = {reg1:false}//
     }
 
     login = ()=>{
@@ -50,47 +51,7 @@ export default class Register extends React.Component {
 
 
          <Register1></Register1>
-             <View style={{
-                    // backgroundColor:"#fff",
-                    marginBottom:48,
-                    height:vh*15,
-                    alignSelf:"stretch",
-                    justifyContent:"center",
-                    alignItems:"center",
-                    flexDirection:"row"
-
-                 }}>
-                        <View style={{
-                                height:15,
-                                width:15,
-                                borderRadius:160,
-                                borderWidth:1,
-                                borderColor:"#fff",
-                                margin:5,
-                                backgroundColor:this.state.reg1 ? 'red' : 'green'
-                            }}>
-                        </View>
-                        <View style={{
-                                height:15,
-                                width:15,
-                                borderRadius:160,
-                                borderWidth:1,
-                                borderColor:"#fff",
-                                margin:5,
-                            }}>
-                        </View>
-                        <View style={{
-                                height:15,
-                                width:15,
-                                borderRadius:160,
-                                borderWidth:1,
-                                borderColor:"#fff",
-                                margin:5
-                            }}>
-                        </View>
-
-             </View>
-
+         <PageStatus/>
           <TouchableOpacity style={{
                backgroundColor:'rgba(0,0,0,0.3)',
                flexDirection:"row",
