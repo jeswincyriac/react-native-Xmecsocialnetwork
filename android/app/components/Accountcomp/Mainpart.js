@@ -158,11 +158,7 @@ export default class Mainpart extends React.Component {
                       backgroundColor:"rgba(0,0,0,0)",
                   }}
                   >
-
               </View>
-
-
-
           </View>
 
 

@@ -2,7 +2,7 @@ import React,{Component}from 'react';
 import {View,Text,TouchableOpacity} from "react-native";
 import {bindActionCreaters} from "redux";
 import {connect} from "react-redux";
-import {regchange} from "./../Actions/index.js"
+
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 class PageStatus extends React.Component {
     render() {
