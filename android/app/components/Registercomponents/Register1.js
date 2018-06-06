@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
 } from 'react-native';
+
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import TextInput from 'react-native-material-textinput';
@@ -19,7 +20,7 @@ import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
 
 
-export default class Register1 extends React.Component {
+class Register1 extends React.Component {
     constructor(props){
       super(props)
       this.state = {dob1:new Date(0),
@@ -36,6 +37,7 @@ export default class Register1 extends React.Component {
       this._hideDateTimePicker();
     };
 
+
     render() {
       return(
 
@@ -43,7 +45,7 @@ export default class Register1 extends React.Component {
 
     <View style={{
         //backgroundColor:"rgba(255,255,255,0.5)"
-
+        marginBottom:10*vh
     }}>
        <View style={{
            width:vw*80
@@ -159,42 +161,13 @@ export default class Register1 extends React.Component {
             }}></DropIcon>
        </View>
        <KeyboardSpacer />
-       <View style={{
-           alignItems:"flex-end",
-           justifyContent:"center",
-           marginTop:20
-       }}>
-               <TouchableOpacity  style={{
-                   height:48,
-                   //backgroundColor:"rgba(255,255,255,0.8)",
-                   alignItems:"center",
-                   justifyContent:"center",
-                   padding:16
 
-               }}
-                         onPress={this.register}  >
-                               <View  style={{
-                                   height:36,
-                                   alignItems:"center",
-                                   justifyContent:"center",
-                                   borderRadius:100,
-                                   backgroundColor:"rgba(168,168,168,.3)",
-                                   padding:16,
-                                   borderColor:"#fff",
-                                   borderWidth:2
-
-                               }}>
-                               <Text style={{
-                                   fontFamily:"sanserif-medium",
-                                   fontSize:21,
-                                   color:"#fff"
-                               }}>Next</Text>
-                               </View>
-               </TouchableOpacity>
-       </View>
 
      </View>
 
  );
  }
 }
+
+
+export default Register1;

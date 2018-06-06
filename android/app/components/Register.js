@@ -17,9 +17,12 @@ var {bp, vw, vh} = require('react-native-relative-units')(375);
 import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
 import Register1 from './Registercomponents/Register1.js';
+import Register2 from './Registercomponents/Register2.js';
 import PageStatus from './Registercomponents/pagestatus.js';
+import Display from 'react-native-display';
+import {connect} from "react-redux";
 let valuelog = true;
-export default class Register extends React.Component {
+class Register extends React.Component {
     constructor(props){
       super(props)
       //this.state = {reg1:false}//
@@ -43,14 +46,30 @@ export default class Register extends React.Component {
         }}>
          <View style = {{
             // backgroundColor:"rgba(255,255,255,0.5)",
-             justifyContent:"flex-end",
+             justifyContent:"center",
              alignItems:"center",
              flex:1,
 
          }}  behavior="height">
 
-
+         <Display enable={(this.props.states.reg == "reg1")} style={{
+                 flex:1,
+                 justifyContent:"center",
+                 alignItems:"center",
+                // backgroundColor:"rgba(0,0,0,0.5)"
+             }}>
          <Register1></Register1>
+          </Display>
+
+          <Display enable={(this.props.states.reg == "reg2")} style={{
+                  flex:1,
+                  justifyContent:"center",
+                  alignItems:"center",
+                 // backgroundColor:"rgba(0,0,0,0.5)"
+              }}>
+          <Register2></Register2>
+           </Display>
+
          <PageStatus/>
           <TouchableOpacity style={{
                backgroundColor:'rgba(0,0,0,0.3)',
@@ -81,3 +100,9 @@ export default class Register extends React.Component {
     );
     }
 }
+function mapstatetoprops(state){
+    return{
+        states : state.states
+    }
+}
+export default  connect(mapstatetoprops)(Register);
