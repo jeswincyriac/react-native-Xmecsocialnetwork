@@ -28,7 +28,25 @@ class PageStatus extends React.Component {
 
                   }}
                             onPress={()=>{
-                                          this.props.update("nextbuttonclicked",{reg:"reg2"})}}  >
+                                           switch (this.props.states.reg) {
+                                               case "reg1":
+                                                   payload={reg:"reg2"}
+                                                   break;
+                                               case "reg2":
+                                                   payload={reg:"reg3"}
+                                                   break;
+                                               case "reg3":
+                                               {
+                                                   payload={reg:"reg1"}
+                                                   this.props.nest2("Profile");
+                                               }
+                                                   break;
+
+
+                                           }
+                                          this.props.update("nextbuttonclicked",payload)
+                                      }
+                                      }  >
                                   <View  style={{
                                       height:36,
                                       alignItems:"center",

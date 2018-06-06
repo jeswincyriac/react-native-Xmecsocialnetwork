@@ -50,8 +50,8 @@ export default class Mainpart extends React.Component {
 
                       <TouchableOpacity style={{
                              backgroundColor: "transparent",
-                             width: 170,
-                             height: 40,
+                             width: 40*vw,
+                             height: 5*vh,
                              borderColor: "#54AFF5",
                              borderWidth: 2,
                              borderRadius: 20,
@@ -72,8 +72,8 @@ export default class Mainpart extends React.Component {
 
                        <TouchableOpacity style={{
 
-                              width: 170,
-                              height: 40,
+                              width: 40*vw,
+                              height: 5*vh,
                               borderColor: "#54AFF5",
                               borderWidth: 2,
                               borderRadius: 20,

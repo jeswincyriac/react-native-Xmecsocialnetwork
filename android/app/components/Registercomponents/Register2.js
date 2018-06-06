@@ -5,6 +5,7 @@ import{
     TextInput,
     Text
 } from 'react-native';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 class Register2 extends React.Component {
     render(){
@@ -12,12 +13,25 @@ class Register2 extends React.Component {
             <View style={{
                 //backgroundColor:"rgba(0,0,0,0.5)",
                 flex:1,
+                alignItems:"center",
+                justifyContent:"center",
             }}>
+            <Text style={{
+                color:"#fff",
+                fontSize:16,
+                marginBottom:10
+            }}>Enter the One Time Password send to your mail</Text>
             <TextInput style={{
-                height:100,
-                width:100,
+                height:40,
+                width:150,
                 backgroundColor:"#fff"
-            }}></TextInput>
+            }}
+            underlineColorAndroid="transparent"
+            autoFocus={true}
+            placeholder="   OTP"
+
+            ></TextInput>
+            <KeyboardSpacer />
             </View>
         );
     }

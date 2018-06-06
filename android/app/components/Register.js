@@ -18,6 +18,7 @@ import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
 import Register1 from './Registercomponents/Register1.js';
 import Register2 from './Registercomponents/Register2.js';
+import Register3 from './Registercomponents/Register3.js';
 import PageStatus from './Registercomponents/pagestatus.js';
 import Display from 'react-native-display';
 import {connect} from "react-redux";
@@ -29,7 +30,7 @@ class Register extends React.Component {
     }
 
     login = ()=>{
-
+        this.props.update("Loginclicked")
         this.props.callbackFromParent(valuelog);
 
     }
@@ -70,7 +71,16 @@ class Register extends React.Component {
           <Register2></Register2>
            </Display>
 
-         <PageStatus/>
+           <Display enable={(this.props.states.reg == "reg3")} style={{
+                   flex:1,
+                   justifyContent:"center",
+                   alignItems:"center",
+                  // backgroundColor:"rgba(0,0,0,0.5)"
+               }}>
+           <Register3></Register3>
+            </Display>
+
+         <PageStatus nest2={this.props.nest}/>
           <TouchableOpacity style={{
                backgroundColor:'rgba(0,0,0,0.3)',
                flexDirection:"row",
@@ -105,4 +115,16 @@ function mapstatetoprops(state){
         states : state.states
     }
 }
-export default  connect(mapstatetoprops)(Register);
+function mapDispatchToProps(dispatch){
+
+    return {
+      update: (dispatchType,dispatchPayload) => {
+
+
+           action = { payload: dispatchPayload,type: dispatchType}
+
+        dispatch(action);
+      }
+    };
+}
+export default  connect(mapstatetoprops,mapDispatchToProps)(Register);
