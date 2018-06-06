@@ -1,6 +1,6 @@
-export const changestatusstate = () =>{
+export  const changestatusstate = (states) => {
     return {
-        type:"next1 clicked",
-        payload:"reg2"
+        type:"next1clicked",
+        payload:states
     }
 };

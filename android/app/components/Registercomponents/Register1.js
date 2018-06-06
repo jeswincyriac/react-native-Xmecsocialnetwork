@@ -17,9 +17,7 @@ import TextInput from 'react-native-material-textinput';
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
-
-
-export default class Register1 extends React.Component {
+ class Register1 extends React.Component {
     constructor(props){
       super(props)
       this.state = {dob1:new Date(0),
@@ -198,3 +196,5 @@ export default class Register1 extends React.Component {
  );
  }
 }
+
+export default Register1;

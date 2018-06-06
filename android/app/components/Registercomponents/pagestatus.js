@@ -2,6 +2,7 @@ import React,{Component}from 'react';
 import {View,Text} from "react-native";
 import {bindActionCreaters} from "redux";
 import {connect} from "react-redux";
+import {changestatusstate} from "./../Actions/index.js";
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 class PageStatus extends React.Component {
     render() {
@@ -57,4 +58,8 @@ function mapstatetoprops(state){
         states : state.states
     }
 }
-export default connect(mapstatetoprops)(PageStatus);
+function mapDispatchToProps(dispatch){
+    return bindActionCreaters({changestatusstate:changestatusstate},dispatch)
+
+}
+export default connect(mapstatetoprops, mapDispatchToProps)(PageStatus);
