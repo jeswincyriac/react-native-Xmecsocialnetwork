@@ -1,6 +1,5 @@
 import React,{Component}from 'react';
 import {View,Text,TouchableOpacity} from "react-native";
-import {bindActionCreaters} from "redux";
 import {connect} from "react-redux";
 
 var {bp, vw, vh} = require('react-native-relative-units')(375);

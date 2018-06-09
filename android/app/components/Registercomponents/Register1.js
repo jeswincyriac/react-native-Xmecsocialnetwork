@@ -14,11 +14,11 @@ import KeyboardSpacer from 'react-native-keyboard-spacer';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import TextInput from 'react-native-material-textinput';
  import Icon from 'react-native-vector-icons/FontAwesome';
- import DropIcon from 'react-native-vector-icons/MaterialIcons';
+
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
-
+import {connect} from "react-redux";
 
 class Register1 extends React.Component {
     constructor(props){
@@ -27,13 +27,13 @@ class Register1 extends React.Component {
                     batch:"",
                     isDateTimePickerVisible: false,}//
     }
-    _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+    _showDateTimePicker = () =>this.setState({ isDateTimePickerVisible: true });
 
     _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
     _handleDobPicked = (date) => {
        this.setState({dob1:date})
-
+        this.props.update("date",date)
       this._hideDateTimePicker();
     };
 
@@ -61,6 +61,7 @@ class Register1 extends React.Component {
              underlineColor="#fff"
              underlineActiveColor="#90CAF9"
              autoCorrect={false}
+             onChangeText={(text) => {this.props.update("name",text)}}
             />
        </View>
 
@@ -79,7 +80,8 @@ class Register1 extends React.Component {
         color="#fff"
         underlineColor="#fff"
         underlineActiveColor="#90CAF9"
-
+        keyboardType="email-address"
+        onChangeText={(text) => {this.props.update("email",text)}}
        />
 
        </View>
@@ -98,7 +100,8 @@ class Register1 extends React.Component {
         color="#fff"
         underlineColor="#fff"
         underlineActiveColor="#90CAF9"
-
+        keyboardType="numeric"
+        onChangeText={(text) => {this.props.update("rollno",text)}}
        />
 
        </View>
@@ -134,7 +137,7 @@ class Register1 extends React.Component {
        </View>
        <View style={{flexDirection: 'row',
                  height:50,
-
+            // backgroundColor:"rgba(0,0,0,0.5)",
              alignItems:'center'
               }}>
 
@@ -147,7 +150,11 @@ class Register1 extends React.Component {
                            color:"#fff",
                           // backgroundColor:"rgba(255,255,255,.1)"
                            }}
-                 onValueChange={(itemValue, itemIndex) => this.setState({batch: itemValue})}
+                 onValueChange={(itemValue, itemIndex) =>{
+                     this.setState({batch: itemValue})
+                     this.props.update("rollno",text)
+                 }
+                 }
                  mode='dropdown'>
                  <Picker.Item label="Branch" value="NULL" />
                  <Picker.Item label="CS" value="CS" />
@@ -156,9 +163,7 @@ class Register1 extends React.Component {
                  <Picker.Item label="EB" value="EB" />
 
             </Picker>
-            <DropIcon name="arrow-drop-down" color="#fff" size={24} style={{
-                //backgroundColor:"#fff"
-            }}></DropIcon>
+
        </View>
        <KeyboardSpacer />
 
@@ -169,5 +174,17 @@ class Register1 extends React.Component {
  }
 }
 
+function mapDispatchToProps(dispatch){
 
-export default Register1;
+    return {
+      update: (dispatchType,dispatchPayload) => {
+
+
+           action = { payload: dispatchPayload,type: dispatchType}
+
+        dispatch(action);
+      }
+    };
+}
+
+export default connect(null,mapDispatchToProps)(Register1);
