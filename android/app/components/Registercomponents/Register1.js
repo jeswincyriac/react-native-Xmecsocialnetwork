@@ -9,30 +9,35 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
 } from 'react-native';
+
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import TextInput from 'react-native-material-textinput';
  import Icon from 'react-native-vector-icons/FontAwesome';
- import DropIcon from 'react-native-vector-icons/MaterialIcons';
+
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 import DismissKeyboard from 'dismissKeyboard';
 import DatePicker from 'react-native-datepicker';
- class Register1 extends React.Component {
+import {connect} from "react-redux";
+
+class Register1 extends React.Component {
     constructor(props){
       super(props)
       this.state = {dob1:new Date(0),
                     batch:"",
                     isDateTimePickerVisible: false,}//
     }
-    _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+    _showDateTimePicker = () =>this.setState({ isDateTimePickerVisible: true });
 
     _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
     _handleDobPicked = (date) => {
        this.setState({dob1:date})
 
+        this.props.update("date",date)
       this._hideDateTimePicker();
     };
+
 
     render() {
       return(
@@ -41,7 +46,7 @@ import DatePicker from 'react-native-datepicker';
 
     <View style={{
         //backgroundColor:"rgba(255,255,255,0.5)"
-
+        marginBottom:10*vh
     }}>
        <View style={{
            width:vw*80
@@ -57,6 +62,7 @@ import DatePicker from 'react-native-datepicker';
              underlineColor="#fff"
              underlineActiveColor="#90CAF9"
              autoCorrect={false}
+             onChangeText={(text) => {this.props.update("name",text)}}
             />
        </View>
 
@@ -75,7 +81,8 @@ import DatePicker from 'react-native-datepicker';
         color="#fff"
         underlineColor="#fff"
         underlineActiveColor="#90CAF9"
-
+        keyboardType="email-address"
+        onChangeText={(text) => {this.props.update("email",text)}}
        />
 
        </View>
@@ -95,6 +102,7 @@ import DatePicker from 'react-native-datepicker';
         underlineColor="#fff"
         underlineActiveColor="#90CAF9"
 
+        onChangeText={(text) => {this.props.update("rollno",text)}}
        />
 
        </View>
@@ -118,7 +126,8 @@ import DatePicker from 'react-native-datepicker';
                <DateTimePicker
                isVisible={this.state.isDateTimePickerVisible}
                  onConfirm={this._handleDobPicked}
-                 onCancel={this._hideDateTimePicker}/>
+                 onCancel={this._hideDateTimePicker}
+                 mode="date"/>
                  <Text style={{
                   textDecorationLine: 'underline',
                   color:"#ffff",
@@ -130,7 +139,7 @@ import DatePicker from 'react-native-datepicker';
        </View>
        <View style={{flexDirection: 'row',
                  height:50,
-
+            // backgroundColor:"rgba(0,0,0,0.5)",
              alignItems:'center'
               }}>
 
@@ -143,7 +152,11 @@ import DatePicker from 'react-native-datepicker';
                            color:"#fff",
                           // backgroundColor:"rgba(255,255,255,.1)"
                            }}
-                 onValueChange={(itemValue, itemIndex) => this.setState({batch: itemValue})}
+                 onValueChange={(itemValue, itemIndex) =>{
+                     this.setState({batch: itemValue})
+                     this.props.update("branch",itemValue)
+                 }
+                 }
                  mode='dropdown'>
                  <Picker.Item label="Branch" value="NULL" />
                  <Picker.Item label="CS" value="CS" />
@@ -152,44 +165,10 @@ import DatePicker from 'react-native-datepicker';
                  <Picker.Item label="EB" value="EB" />
 
             </Picker>
-            <DropIcon name="arrow-drop-down" color="#fff" size={24} style={{
-                //backgroundColor:"#fff"
-            }}></DropIcon>
+
        </View>
        <KeyboardSpacer />
-       <View style={{
-           alignItems:"flex-end",
-           justifyContent:"center",
-           marginTop:20
-       }}>
-               <TouchableOpacity  style={{
-                   height:48,
-                   //backgroundColor:"rgba(255,255,255,0.8)",
-                   alignItems:"center",
-                   justifyContent:"center",
-                   padding:16
 
-               }}
-                         onPress={this.register}  >
-                               <View  style={{
-                                   height:36,
-                                   alignItems:"center",
-                                   justifyContent:"center",
-                                   borderRadius:100,
-                                   backgroundColor:"rgba(168,168,168,.3)",
-                                   padding:16,
-                                   borderColor:"#fff",
-                                   borderWidth:2
-
-                               }}>
-                               <Text style={{
-                                   fontFamily:"sanserif-medium",
-                                   fontSize:21,
-                                   color:"#fff"
-                               }}>Next</Text>
-                               </View>
-               </TouchableOpacity>
-       </View>
 
      </View>
 
@@ -197,4 +176,17 @@ import DatePicker from 'react-native-datepicker';
  }
 }
 
-export default Register1;
+function mapDispatchToProps(dispatch){
+
+    return {
+      update: (dispatchType,dispatchPayload) => {
+
+
+           action = { payload: dispatchPayload,type: dispatchType}
+
+        dispatch(action);
+      }
+    };
+}
+
+export default connect(null,mapDispatchToProps)(Register1);

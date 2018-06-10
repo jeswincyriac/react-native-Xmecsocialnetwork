@@ -1,8 +1,10 @@
 import {combineReducers} from "redux"
 import componentStates from "./Reducer-component-states.js"
-
+import Registerdetails from "./Registerdetails"
+import {createStore} from 'redux';
 const allReducers = combineReducers({
-    states: componentStates
+    states: componentStates,
+    regdetails:Registerdetails
 });
 
-export default allReducers;
+export default createStore(allReducers);

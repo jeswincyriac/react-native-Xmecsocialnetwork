@@ -24,7 +24,7 @@ const Application =StackNavigator({
     header:false,
   }
 });
-const store = createStore(allReducers);
+const store = allReducers;
 export default class App extends React.Component  {
   render() {
     return (
