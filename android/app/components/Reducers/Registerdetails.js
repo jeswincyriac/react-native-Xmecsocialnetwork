@@ -46,7 +46,7 @@ switch (actions.type) {
         break;
 
     case "date":{
-        // console.log(action.payload)
+         console.log(action.payload)
         return {
             name:state.name,
             email:state.email,
@@ -102,7 +102,7 @@ switch (actions.type) {
       }
         break;
     case "nextbuttonclicked":{
-        console.log(state)
+        //console.log(state)
         return {
             name:state.name,
             email:state.email,

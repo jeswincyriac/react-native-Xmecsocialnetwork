@@ -33,6 +33,7 @@ class Register1 extends React.Component {
 
     _handleDobPicked = (date) => {
        this.setState({dob1:date})
+
         this.props.update("date",date)
       this._hideDateTimePicker();
     };
@@ -100,7 +101,7 @@ class Register1 extends React.Component {
         color="#fff"
         underlineColor="#fff"
         underlineActiveColor="#90CAF9"
-        
+
         onChangeText={(text) => {this.props.update("rollno",text)}}
        />
 
@@ -125,7 +126,8 @@ class Register1 extends React.Component {
                <DateTimePicker
                isVisible={this.state.isDateTimePickerVisible}
                  onConfirm={this._handleDobPicked}
-                 onCancel={this._hideDateTimePicker}/>
+                 onCancel={this._hideDateTimePicker}
+                 mode="date"/>
                  <Text style={{
                   textDecorationLine: 'underline',
                   color:"#ffff",
