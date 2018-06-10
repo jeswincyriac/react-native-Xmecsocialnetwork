@@ -28,11 +28,27 @@ class PageStatus extends React.Component {
                   }}
                             onPress={()=>{
                                            switch (this.props.states.reg) {
-                                               case "reg1":
-                                                   payload={reg:"reg2"}
+                                               case "reg1":{
+                                                   if(this.props.regdetails.name==null||this.props.regdetails.email==null||this.props.regdetails.branch==null||this.props.regdetails.date_of_birth==null)
+                                                   {
+                                                       alert("Field not complete")
+                                                        payload={reg:"reg1"}
+                                                   }
+                                                   else
+                                                   payload={reg:"reg2"};
+
+                                               }
                                                    break;
                                                case "reg2":
-                                                   payload={reg:"reg3"}
+                                                    {     if(this.props.regdetails.password==null|| this.props.regdetails.password != this.props.regdetails.password2 )
+                                                        {
+                                                            alert("Passwords donot match or is empty ")
+                                                         payload={reg:"reg2"}
+                                                        }
+                                                        else {
+                                                            payload={reg:"reg3"};
+                                                        }
+                                                    }
                                                    break;
                                                case "reg3":
                                                {
@@ -113,7 +129,8 @@ class PageStatus extends React.Component {
 
 function mapstatetoprops(state){
     return{
-        states : state.states
+        states : state.states,
+        regdetails:state.regdetails
     }
 }
 

@@ -1,9 +1,21 @@
 export default function(state=0,actions={}){
-    if (actions.type == "nextbuttonclicked") {
+    switch(actions.type) {
+        case "nextbuttonclicked":{
             //console.log(state)
             return actions.payload
         }
-    else {
+            break;
+        case "password":{
+            //console.log(state)
+            return {reg:"reg2"}
+        }
+            break;
+        case "password2":{
+            //console.log(state)
+            return {reg:"reg2"}
+        }
+            break;
+    default:
         return {reg:"reg1"}
 
     }

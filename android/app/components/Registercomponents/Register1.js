@@ -100,7 +100,7 @@ class Register1 extends React.Component {
         color="#fff"
         underlineColor="#fff"
         underlineActiveColor="#90CAF9"
-        keyboardType="numeric"
+        
         onChangeText={(text) => {this.props.update("rollno",text)}}
        />
 
@@ -152,7 +152,7 @@ class Register1 extends React.Component {
                            }}
                  onValueChange={(itemValue, itemIndex) =>{
                      this.setState({batch: itemValue})
-                     this.props.update("rollno",text)
+                     this.props.update("branch",itemValue)
                  }
                  }
                  mode='dropdown'>
