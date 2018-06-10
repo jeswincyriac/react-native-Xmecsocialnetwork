@@ -53,7 +53,7 @@ class Register extends React.Component {
 
          }}  behavior="height">
 
-         <Display enable={(this.props.states.reg == "reg1")} style={{
+         <Display enable={(this.props.regdetails.reg == "reg1")} style={{
                  flex:1,
                  justifyContent:"center",
                  alignItems:"center",
@@ -62,7 +62,7 @@ class Register extends React.Component {
          <Register1></Register1>
           </Display>
 
-          <Display enable={(this.props.states.reg == "reg2")} style={{
+          <Display enable={(this.props.regdetails.reg == "reg2")} style={{
                   flex:1,
                   justifyContent:"center",
                   alignItems:"center",
@@ -71,7 +71,7 @@ class Register extends React.Component {
           <Register2></Register2>
            </Display>
 
-           <Display enable={(this.props.states.reg == "reg3")} style={{
+           <Display enable={(this.props.regdetails.reg == "reg3")} style={{
                    flex:1,
                    justifyContent:"center",
                    alignItems:"center",
@@ -112,7 +112,8 @@ class Register extends React.Component {
 }
 function mapstatetoprops(state){
     return{
-        states : state.states
+        states : state.states,
+        regdetails:state.regdetails
     }
 }
 function mapDispatchToProps(dispatch){

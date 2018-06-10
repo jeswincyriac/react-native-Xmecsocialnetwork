@@ -46,6 +46,25 @@ class PageStatus extends React.Component {
                                                          payload={reg:"reg2"}
                                                         }
                                                         else {
+                                                            fetch('http://10.0.2.2:8000/v1/register', {
+                                                                 method: 'POST',
+
+                                                                 body: JSON.stringify({
+                                                                    "name":this.props.regdetails.name,
+                                                                     "email":this.props.regdetails.email,
+                                                                     "roll_no":this.props.regdetails.roll_no,
+                                                                     "dob":this.props.regdetails.date_of_birth,
+                                                                     "branch":this.props.regdetails.branch,
+                                                                     "password":this.props.regdetails.password,
+                                                                 }),
+                                                             }).then((res) =>
+                                                                 res.json())
+                                                             .then((responseJson) => {
+                                                                 console.log('Success:',responseJson);
+                                                                })
+                                                                .catch((error) => {
+                                                              console.error(error);
+                                                            })    ;
                                                             payload={reg:"reg3"};
                                                         }
                                                     }
