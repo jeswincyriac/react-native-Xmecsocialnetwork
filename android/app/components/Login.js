@@ -17,17 +17,16 @@ import TextInput from 'react-native-material-textinput';
 import { StackNavigator } from 'react-navigation';
 import Checkbox from 'react-native-custom-checkbox';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icone from 'react-native-vector-icons/MaterialCommunityIcons';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import DismissKeyboard from 'dismissKeyboard';
+import {connect} from "react-redux";
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 let valuelog = false;
-export default class Login extends React.Component {
+class Login extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      username:'',
-      password:'',
-    }
+
   }
   componentDidMount(){
     this._loadInitialState().done();
@@ -62,7 +61,7 @@ export default class Login extends React.Component {
 
                                          }}>
 
-                                         <Icon name="account-circle" size={24} color="#fff"/>
+                                         <Icone name="email-outline" size={24} color="#fff"/>
                                      </View>
                                      <View style={{
                                              width:250,
@@ -70,14 +69,14 @@ export default class Login extends React.Component {
                                          }}>
                                            <TextInput
 
-                                               label="Username"
+                                               label="Email"
                                                labelColor="#90CAF9"
                                                labelActiveColor="#90CAF9"
                                                color="#fff"
                                                underlineColor="#fff"
                                                underlineActiveColor="#90CAF9"
                                                autoCorrect={false}
-                                             onChangeText={(username) => this.setState({username})}
+                                             onChangeText={(text) => {this.props.update("Username",text)}}
                                             />
                                      </View>
                            </View>
@@ -103,7 +102,7 @@ export default class Login extends React.Component {
                                    color="#fff"
                                    autoCorrect={false}
                                    secureTextEntry={true}
-                                   onChangeText={(password) => this.setState({password})}
+                                   onChangeText={(text) => {this.props.update("passwordL",text)}}
                                    />
                                </View>
                            </View>
@@ -210,6 +209,7 @@ export default class Login extends React.Component {
   }
  login = () => {
          this.props.nest("Profile");
+        console.log(this.props.Logstate.Username)
       // this.props.navigation.navigate('Profile')
     // alert('test');
     /*------fetch request  to be tested with a backend server running
@@ -220,8 +220,8 @@ export default class Login extends React.Component {
               'Content-Type':'application/json'
             },
          body: JSON.stringify({
-              username: this.state.username,
-              password: this.state.password,
+              email:this.props.Logstate.Username ,
+              password: this.props.Logstate.password,
 
             })
       })
@@ -251,3 +251,24 @@ export default class Login extends React.Component {
 
 
 }
+
+function mapDispatchToProps(dispatch){
+
+    return {
+      update: (dispatchType,dispatchPayload) => {
+
+
+           action = { payload: dispatchPayload,type: dispatchType}
+
+        dispatch(action);
+      }
+    };
+}
+function mapstatetoprops(state){
+    return{
+
+        Logstate:state.Logstate
+    }
+}
+
+export default connect(mapstatetoprops,mapDispatchToProps)(Login)
