@@ -71,8 +71,11 @@ class PageStatus extends React.Component {
                                                    break;
                                                case "reg3":
                                                {
-                                                   payload={reg:"reg1"}
+
+                                                   //a fetchrequest like above and only if ture following statements
                                                    this.props.nest2("Profile");
+                                                   payload={reg:"reg1"};
+                                                   
                                                }
                                                    break;
 
@@ -148,7 +151,7 @@ class PageStatus extends React.Component {
 
 function mapstatetoprops(state){
     return{
-        
+
         regdetails:state.regdetails
     }
 }

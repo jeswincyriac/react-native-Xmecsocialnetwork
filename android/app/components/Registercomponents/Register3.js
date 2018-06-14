@@ -6,6 +6,7 @@ import{
     Text
 } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
+import {connect} from "react-redux";
 
 class Register3 extends React.Component {
     render(){
@@ -29,6 +30,7 @@ class Register3 extends React.Component {
             underlineColorAndroid="transparent"
             autoFocus={true}
             placeholder="   OTP"
+            onChangeText={(text) => {this.props.update("otp",text)}}
 
             ></TextInput>
             <KeyboardSpacer />
@@ -36,4 +38,17 @@ class Register3 extends React.Component {
         );
     }
 }
-export default Register3;
+function mapDispatchToProps(dispatch){
+
+    return {
+      update: (dispatchType,dispatchPayload) => {
+
+
+           action = { payload: dispatchPayload,type: dispatchType}
+
+        dispatch(action);
+      }
+    };
+}
+
+export default connect(null,mapDispatchToProps)(Register3);

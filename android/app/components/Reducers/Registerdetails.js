@@ -11,6 +11,7 @@ switch (actions.type) {
             password:state.password,
             password2:state.password2,
             reg:"reg1",
+            otp:state.otp
         };
       }
 
@@ -25,7 +26,8 @@ switch (actions.type) {
             branch:state.branch,
             password:state.password,
             password2:state.password2,
-            reg:"reg1"
+            reg:"reg1",
+            otp:state.otp
         };
       }
         break;
@@ -40,7 +42,8 @@ switch (actions.type) {
             branch:state.branch,
             password:state.password,
             password2:state.password2,
-            reg:"reg1"
+            reg:"reg1",
+            otp:state.otp
         };
       }
         break;
@@ -55,7 +58,8 @@ switch (actions.type) {
             branch:state.branch,
             password:state.password,
             password2:state.password2,
-            reg:"reg1"
+            reg:"reg1",
+            otp:state.otp
         };
       }
         break;
@@ -69,7 +73,8 @@ switch (actions.type) {
             branch:actions.payload,
             password:state.password,
             password2:state.password2,
-            reg:"reg1"
+            reg:"reg1",
+            otp:state.otp
         };
       }
         break;
@@ -83,7 +88,8 @@ switch (actions.type) {
             branch:state.branch,
             password:actions.payload,
             password2:state.password2,
-            reg:"reg2"
+            reg:"reg2",
+            otp:state.otp
         };
       }
         break;
@@ -97,7 +103,8 @@ switch (actions.type) {
             branch:state.branch,
             password:state.password,
             password2:actions.payload,
-            reg:"reg2"
+            reg:"reg2",
+            otp:state.otp
         };
       }
         break;
@@ -111,7 +118,24 @@ switch (actions.type) {
             branch:state.branch,
             password:state.password,
             password2:state.password2,
-            reg:actions.payload.reg
+            reg:actions.payload.reg,
+            otp:state.otp
+        }
+    }
+        break;
+
+    case "otp":{
+        //console.log(state)
+        return {
+            name:state.name,
+            email:state.email,
+            roll_no:state.roll_no,
+            date_of_birth:state.date_of_birth,
+            branch:state.branch,
+            password:state.password,
+            password2:state.password2,
+            reg:state.reg,
+            otp:actions.payload
         }
     }
         break;
@@ -125,7 +149,8 @@ switch (actions.type) {
             branch:null,
             password:null,
             password2:null,
-            reg:"reg1"
+            reg:"reg1",
+            otp:null
         };
    }
 
