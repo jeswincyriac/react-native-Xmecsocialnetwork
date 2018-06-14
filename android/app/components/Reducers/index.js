@@ -1,9 +1,9 @@
 import {combineReducers} from "redux"
-import componentStates from "./Reducer-component-states.js"
+//import componentStates from "./Reducer-component-states.js"
 import Registerdetails from "./Registerdetails"
 import {createStore} from 'redux';
 const allReducers = combineReducers({
-    states: componentStates,
+
     regdetails:Registerdetails
 });
 

@@ -112,7 +112,7 @@ class Register extends React.Component {
 }
 function mapstatetoprops(state){
     return{
-        states : state.states,
+        
         regdetails:state.regdetails
     }
 }

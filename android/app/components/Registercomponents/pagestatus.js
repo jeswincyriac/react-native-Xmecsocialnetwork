@@ -27,7 +27,7 @@ class PageStatus extends React.Component {
 
                   }}
                             onPress={()=>{
-                                           switch (this.props.states.reg) {
+                                           switch (this.props.regdetails.reg) {
                                                case "reg1":{
                                                    if(this.props.regdetails.name==null||this.props.regdetails.email==null||this.props.regdetails.branch==null||this.props.regdetails.date_of_birth==null)
                                                    {
@@ -126,7 +126,7 @@ class PageStatus extends React.Component {
                              borderWidth:1,
                              borderColor:"#fff",
                              margin:5,
-                             backgroundColor:((this.props.states.reg == "reg2") ||(this.props.states.reg == "reg3") )? '#fff' : 'transparent',
+                             backgroundColor:((this.props.regdetails.reg == "reg2") ||(this.props.regdetails.reg == "reg3") )? '#fff' : 'transparent',
                          }}>
                      </View>
                      <View style={{
@@ -136,7 +136,7 @@ class PageStatus extends React.Component {
                              borderWidth:1,
                              borderColor:"#fff",
                              margin:5,
-                             backgroundColor:this.props.states.reg == "reg3"  ? '#fff' : 'transparent',
+                             backgroundColor:this.props.regdetails.reg == "reg3"  ? '#fff' : 'transparent',
                          }}>
                      </View>
 
@@ -148,7 +148,7 @@ class PageStatus extends React.Component {
 
 function mapstatetoprops(state){
     return{
-        states : state.states,
+        
         regdetails:state.regdetails
     }
 }
