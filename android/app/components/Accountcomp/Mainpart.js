@@ -13,8 +13,10 @@ import {
   import IconE from 'react-native-vector-icons/EvilIcons';
   import Triangle from 'react-native-triangle';
   var {bp, vw, vh} = require('react-native-relative-units')(375);
+  import {connect} from "react-redux";
 
-export default class Mainpart extends React.Component {
+class Mainpart extends React.Component {
+
     render() {
       return(
           <View>
@@ -111,7 +113,7 @@ export default class Mainpart extends React.Component {
                               fontSize:20,
                               fontFamily:"sans-serif-medium",
                               color:"rgba(0,0,0,.87)"
-                          }}>MY NAME</Text>
+                          }}>{this.props.userdetails.name}</Text>
                       <View style={{
                               flexDirection:"row",
                               justifyContent:"center",
@@ -121,7 +123,7 @@ export default class Mainpart extends React.Component {
                           <Text
                               style={{
                                   fontSize:15,
-                              }}>Ui Designer  </Text>
+                              }}>{this.props.userdetails.occupation}</Text>
                           <View style={{
                                   //backgroundColor:"#9E9E9E",
                                   backgroundColor:"#54AFF5",
@@ -133,7 +135,7 @@ export default class Mainpart extends React.Component {
                           <Text
                               style={{
                                   fontSize:15,
-                              }}>   Company</Text>
+                              }}>{this.props.userdetails.company}</Text>
 
                       </View>
               </View>
@@ -146,9 +148,7 @@ export default class Mainpart extends React.Component {
                       top:vh*12,
                       left:vw*35
                   }}
-                  source={
-                      require("../images/profilepic.jpeg")
-                  }>
+                  source={this.props.userdetails.imageurl}>
 
               </Image>
               <View
@@ -167,3 +167,24 @@ export default class Mainpart extends React.Component {
       );
     }
 }
+
+function mapstatetoprops(state){
+    return{
+
+        userdetails:state.userdetails
+    }
+}
+function mapDispatchToProps(dispatch){
+
+    return {
+      update: (dispatchType,dispatchPayload) => {
+
+
+           action = { payload: dispatchPayload,type: dispatchType}
+
+        dispatch(action);
+      }
+    };
+}
+
+export default connect(mapstatetoprops,mapDispatchToProps)(Mainpart)

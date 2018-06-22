@@ -29,7 +29,7 @@ class PageStatus extends React.Component {
                             onPress={()=>{
                                            switch (this.props.regdetails.reg) {
                                                case "reg1":{
-                                                   if(this.props.regdetails.name==null||this.props.regdetails.email==null||this.props.regdetails.branch==null||this.props.regdetails.date_of_birth==null)
+                                                   if(this.props.regdetails.name==null||this.props.regdetails.email==null||this.props.regdetails.branch==null||this.props.regdetails.dob_date==null||this.props.regdetails.dob_month==null||this.props.regdetails.dob_year==null)
                                                    {
                                                        alert("Field not complete")
                                                         payload={reg:"reg1"}
@@ -53,7 +53,9 @@ class PageStatus extends React.Component {
                                                                     "name":this.props.regdetails.name,
                                                                      "email":this.props.regdetails.email,
                                                                      "roll_no":this.props.regdetails.roll_no,
-                                                                     "dob":this.props.regdetails.date_of_birth,
+                                                                     "dobdate":this.props.regdetails.dob_date,
+                                                                     "dobmonth":this.props.regdetails.dob_month,
+                                                                     "dobyear":this.props.regdetails.dob_year,
                                                                      "branch":this.props.regdetails.branch,
                                                                      "password":this.props.regdetails.password,
                                                                  }),
@@ -75,7 +77,7 @@ class PageStatus extends React.Component {
                                                    //a fetchrequest like above and only if ture following statements
                                                    this.props.nest2("Profile");
                                                    payload={reg:"reg1"};
-                                                   
+
                                                }
                                                    break;
 

@@ -24,6 +24,11 @@ const Application =StackNavigator({
     header:false,
   }
 });
+const _XHR = GLOBAL.originalXMLHttpRequest ?
+    GLOBAL.originalXMLHttpRequest :
+    GLOBAL.XMLHttpRequest
+
+XMLHttpRequest = _XHR
 const store = allReducers;
 export default class App extends React.Component  {
   render() {

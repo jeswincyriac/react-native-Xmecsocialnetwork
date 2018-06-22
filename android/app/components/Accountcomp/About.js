@@ -3,10 +3,12 @@ import {
   StyleSheet,
   Text,
   View,
+  TextInput
   } from 'react-native';
   import Icon from 'react-native-vector-icons/MaterialIcons';
   var {bp, vw, vh} = require('react-native-relative-units')(375);
-  export default class About extends React.Component {
+  import {connect} from "react-redux";
+  class About extends React.Component {
 
       render() {
         return(
@@ -34,11 +36,21 @@ import {
                             marginTop:4
                         }}>
                     </View>
-                    <Text style={{
+                    <View
+                        style={{
+                             alignSelf:"stretch"
+                        }}>
+                    <TextInput style={{
                             marginTop:24,
-                            color:"rgba(0,0,0,.87)"
-                        }}>Hello.This is what i have to say about myself</Text>
-
+                           color:"rgba(0,0,0,0.87)"
+                        }}
+                     multiline={true}
+                     underlineColorAndroid="transparent"
+                     spellCheck={false}
+                     value={this.props.userdetails.aboutstatement}
+                     editable={this.props.userdetails.editable}
+                    ></TextInput>
+                    </View>
 
                     <View style={{
                             flex:1,
@@ -46,7 +58,8 @@ import {
                             alignSelf:"stretch",
                             borderColor:"#cfd8dc",
                             marginTop:24,
-                            padding:7
+                            padding:7,
+                            flexDirection:"row"
                         }}
                                >
 
@@ -55,15 +68,29 @@ import {
                                             fontWeight:"bold"
                                       }}
                                       >Passout Year:</Text>
+                                  <TextInput style={{
+                                        // backgroundColor:"rgba(0,0,1,.5)",
+                                         color:"rgba(0,0,0,0.87)",
+                                         height:20,
+                                         padding:0
+                                      }}
+
+                                   underlineColorAndroid="transparent"
+                                   spellCheck={false}
+                                   value={this.props.userdetails.passoutyear}
+                                   editable={this.props.userdetails.editable}
+                                  ></TextInput>
 
                    </View>
+
                     <View style={{
                             flex:1,
                             borderWidth:1,
                             alignSelf:"stretch",
                             borderColor:"#cfd8dc",
                             marginTop:12,
-                            padding:7
+                            padding:7,
+                            flexDirection:"row"
                         }}>
 
                                   <Text style={{
@@ -71,6 +98,18 @@ import {
                                             fontWeight:"bold"
                                       }}
                                       >Course:</Text>
+                                  <TextInput style={{
+                                        // backgroundColor:"rgba(0,0,1,.5)",
+                                         color:"rgba(0,0,0,0.87)",
+                                         height:20,
+                                         padding:0
+                                      }}
+
+                                   underlineColorAndroid="transparent"
+                                   spellCheck={false}
+                                   value={this.props.userdetails.course}
+                                   editable={this.props.userdetails.editable}
+                                  ></TextInput>
 
                     </View>
                     <View style={{
@@ -79,7 +118,37 @@ import {
                             alignSelf:"stretch",
                             borderColor:"#cfd8dc",
                             marginTop:12,
-                            padding:7
+                            padding:7,
+                            flexDirection:"row"
+                        }}>
+
+                                  <Text style={{
+                                            color:"rgba(0,0,0,.87)",
+                                            fontWeight:"bold"
+                                      }}
+                                      >Branch:</Text>
+                                  <TextInput style={{
+                                        // backgroundColor:"rgba(0,0,1,.5)",
+                                         color:"rgba(0,0,0,0.87)",
+                                         height:20,
+                                         padding:0
+                                      }}
+
+                                   underlineColorAndroid="transparent"
+                                   spellCheck={false}
+                                   value={this.props.userdetails.branch}
+                                   editable={this.props.userdetails.editable}
+                                  ></TextInput>
+
+                    </View>
+                    <View style={{
+                            flex:1,
+                            borderWidth:1,
+                            alignSelf:"stretch",
+                            borderColor:"#cfd8dc",
+                            marginTop:12,
+                            padding:7,
+                            flexDirection:"row"
                         }}>
 
                                   <Text style={{
@@ -88,6 +157,7 @@ import {
                                       }}
                                       >DOB:</Text>
 
+
                     </View>
                     <View style={{
                             flex:1,
@@ -95,7 +165,8 @@ import {
                             alignSelf:"stretch",
                             borderColor:"#cfd8dc",
                             marginTop:12,
-                            padding:7
+                            padding:7,
+                            flexDirection:"row"
                         }}>
 
                                   <Text style={{
@@ -103,6 +174,18 @@ import {
                                             fontWeight:"bold"
                                       }}
                                       >Current Address:</Text>
+                                  <TextInput style={{
+                                        // backgroundColor:"rgba(0,0,1,.5)",
+                                         color:"rgba(0,0,0,0.87)",
+                                         height:20,
+                                         padding:0
+                                      }}
+                                   multiline={true}
+                                   underlineColorAndroid="transparent"
+                                   spellCheck={false}
+                                   value={this.props.userdetails.CurrentAddress}
+                                   editable={this.props.userdetails.editable}
+                                  ></TextInput>
 
                     </View>
                     <View style={{
@@ -111,7 +194,8 @@ import {
                             alignSelf:"stretch",
                             borderColor:"#cfd8dc",
                             marginTop:12,
-                            padding:7
+                            padding:7,
+                            flexDirection:"row"
                         }}>
 
                                   <Text style={{
@@ -119,6 +203,19 @@ import {
                                             fontWeight:"bold"
                                       }}
                                       >Permanent Address:</Text>
+                                  <TextInput style={{
+                                         backgroundColor:"rgba(0,0,1,.5)",
+                                         color:"rgba(0,0,0,0.87)",
+                                         height:20,
+                                         padding:0,
+                                         alignSelf:"stretch"
+                                      }}
+                                   multiline={true}
+                                   underlineColorAndroid="transparent"
+                                   spellCheck={false}
+                                   value={this.props.userdetails.PermanentAddress}
+                                   editable={this.props.userdetails.editable}
+                                  ></TextInput>
 
                     </View>
                     <View style={{
@@ -127,7 +224,8 @@ import {
                             alignSelf:"stretch",
                             borderColor:"#cfd8dc",
                             marginTop:12,
-                            padding:7
+                            padding:7,
+
                         }}>
 
                                   <Text style={{
@@ -166,3 +264,24 @@ import {
 
 
     }
+
+    function mapstatetoprops(state){
+        return{
+
+            userdetails:state.userdetails
+        }
+    }
+    function mapDispatchToProps(dispatch){
+
+        return {
+          update: (dispatchType,dispatchPayload) => {
+
+
+               action = { payload: dispatchPayload,type: dispatchType}
+
+            dispatch(action);
+          }
+        };
+    }
+
+export default connect(mapstatetoprops,mapDispatchToProps)(About)

@@ -33,8 +33,11 @@ class Register1 extends React.Component {
 
     _handleDobPicked = (date) => {
        this.setState({dob1:date})
+    
+        this.props.update("dobdate",date.getDate())
+        this.props.update("dobmonth",date.getMonth()+1);
+        this.props.update("dobyear",date.getFullYear());
 
-        this.props.update("date",date)
       this._hideDateTimePicker();
     };
 
@@ -132,7 +135,7 @@ class Register1 extends React.Component {
                   textDecorationLine: 'underline',
                   color:"#ffff",
 
-              }}>  {this.state.dob1.getDate()}-{this.state.dob1.getMonth()+1}-{this.state.dob1.getYear()+1900} </Text>
+              }}>  {this.state.dob1.getDate()}-{this.state.dob1.getMonth()+1}-{this.state.dob1.getFullYear()} </Text>
 
                <Icon name="calendar" color="#fff" size={24} style={{marginLeft:10}}/>
                  </TouchableOpacity>
