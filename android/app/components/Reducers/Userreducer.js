@@ -22,6 +22,28 @@ export default function(state=0,actions={}){
          }
      }
          break;
+     case "save":
+     {   console.log(actions.payload)
+         return{
+             name:state.name,
+             occupation:state.occupation,
+             company:state.company,
+             aboutstatement:state.aboutstatement,
+             passoutyear:state.passoutyear,
+             course:state.course,
+             dob:state.dob,
+             CurrentAddress:state.CurrentAddress,
+             PermanentAddress:state.PermanentAddress,
+             contact:state.contact,
+             workExp:state.workExp,
+             education:state.education,
+             editable:false,
+             branch:state.branch,
+             imageurl:state.imageurl
+
+         }
+     }
+         break;
      default:
      return{
          name:null,
