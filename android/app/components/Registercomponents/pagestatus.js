@@ -1,7 +1,7 @@
 import React,{Component}from 'react';
 import {View,Text,TouchableOpacity} from "react-native";
 import {connect} from "react-redux";
-
+import url from "./../url.js"
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 class PageStatus extends React.Component {
     render() {
@@ -26,7 +26,7 @@ class PageStatus extends React.Component {
                       padding:16
 
                   }}
-                            onPress={()=>{
+                            onPress={()=>{ //console.log('http://'+url+'/v1/register')
                                            switch (this.props.regdetails.reg) {
                                                case "reg1":{
                                                    if(this.props.regdetails.name==null||this.props.regdetails.email==null||this.props.regdetails.branch==null||this.props.regdetails.dob_date==null||this.props.regdetails.dob_month==null||this.props.regdetails.dob_year==null)
@@ -48,7 +48,7 @@ class PageStatus extends React.Component {
                                                         else {
                                                                         if (this.props.regdetails.roll_no==null)
                                                                         {
-                                                                        fetch('http://10.0.2.2:8000/v1/register', {
+                                                                        fetch('http://'+url+'/v1/register', {
                                                                              method: 'POST',
 
                                                                              body: JSON.stringify({
