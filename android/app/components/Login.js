@@ -208,38 +208,33 @@ class Login extends React.Component {
     );
   }
  login = () => {
-         this.props.nest("Profile");
-        console.log(this.props.Logstate.Username)
+        // this.props.nest("Profile");
+        //console.log(this.props.Logstate.Username)
       // this.props.navigation.navigate('Profile')
     // alert('test');
-    /*------fetch request  to be tested with a backend server running
-      fetch('http://ip;port/path', {
+    //------fetch request  to be tested with a backend server running
+      fetch('http://'+url+'/v1/login', {
          method: 'POST',
-         headers:{
-              'Accept':'application/json',
-              'Content-Type':'application/json'
-            },
          body: JSON.stringify({
-              email:this.props.Logstate.Username ,
-              password: this.props.Logstate.password,
-
+              "email":this.props.Logstate.Username ,
+              "password": this.props.Logstate.password,
             })
-      })
-
-      .then((response) => response.json())
+      }).then((response) => response.json())
       .then ((res) =>{
-              if (res.success === true){
+            /*  if (res.success === true){
                  AsyncStorage.setItem('user',res.user);
                  this.props.navigation.navigate('Profile');
                    }
               else {
               alert(res.message);
-            }
-    })
-    .done();
+                   } */
+              console.log(res)
+
+    });
 
 
-     */
+
+
     // alert('profile not created');
    }
 

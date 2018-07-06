@@ -73,7 +73,7 @@ class PageStatus extends React.Component {
                                                                     }
                                                                     else
                                                                     {
-                                                                        fetch('http://10.0.2.2:8000/v1/register', {
+                                                                        fetch('http://'+url+'/v1/register', {
                                                                              method: 'POST',
 
                                                                              body: JSON.stringify({
