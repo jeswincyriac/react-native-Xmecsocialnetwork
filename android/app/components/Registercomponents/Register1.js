@@ -33,7 +33,7 @@ class Register1 extends React.Component {
 
     _handleDobPicked = (date) => {
        this.setState({dob1:date})
-    
+
         this.props.update("dobdate",date.getDate())
         this.props.update("dobmonth",date.getMonth()+1);
         this.props.update("dobyear",date.getFullYear());
@@ -85,7 +85,8 @@ class Register1 extends React.Component {
         underlineColor="#fff"
         underlineActiveColor="#90CAF9"
         keyboardType="email-address"
-        onChangeText={(text) => {this.props.update("email",text)}}
+        textContentType="emailAddress"
+        onChangeText={(text) => {this.props.update("email",text.toLowerCase())}}
        />
 
        </View>

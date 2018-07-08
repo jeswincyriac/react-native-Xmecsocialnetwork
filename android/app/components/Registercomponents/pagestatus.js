@@ -46,64 +46,79 @@ class PageStatus extends React.Component {
                                                          payload={reg:"reg2"}
                                                         }
                                                         else {
-                                                                        if (this.props.regdetails.roll_no==null)
-                                                                        {
-                                                                        fetch('http://'+url+'/v1/register', {
-                                                                             method: 'POST',
+                                                            fetch('http://'+url+'/v1/otp', {
+                                                                 method: 'POST',
+                                                                 body: JSON.stringify({
+                                                                         "email":this.props.regdetails.email,
+                                                                     }),
+                                                                 }).then((res) =>
+                                                                     res.json())
+                                                                 .then((responseJson) => {
+                                                                     console.log(responseJson);
+                                                                    })
+                                                                    .catch((error) => {
+                                                                  console.error(error);
+                                                                })    ;
 
-                                                                             body: JSON.stringify({
-                                                                                "name":this.props.regdetails.name,
-                                                                                 "email":this.props.regdetails.email,
-                                                                                 "roll_no":this.props.regdetails.roll_no,
-                                                                                 "dobday":this.props.regdetails.dob_date,
-                                                                                 "dobmonth":this.props.regdetails.dob_month,
-                                                                                 "dobyear":this.props.regdetails.dob_year,
-                                                                                 "branch":this.props.regdetails.branch,
-                                                                                 "password":this.props.regdetails.password,
-                                                                             }),
-                                                                         }).then((res) =>
-                                                                             res.json())
-                                                                         .then((responseJson) => {
-                                                                             console.log('Success:',responseJson);
-                                                                            })
-                                                                            .catch((error) => {
-                                                                          console.error(error);
-                                                                        })    ;
 
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        fetch('http://'+url+'/v1/register', {
-                                                                             method: 'POST',
 
-                                                                             body: JSON.stringify({
-                                                                                "name":this.props.regdetails.name,
-                                                                                 "email":this.props.regdetails.email,
-                                                                                 "dobday":this.props.regdetails.dob_date,
-                                                                                 "dobmonth":this.props.regdetails.dob_month,
-                                                                                 "dobyear":this.props.regdetails.dob_year,
-                                                                                 "branch":this.props.regdetails.branch,
-                                                                                 "password":this.props.regdetails.password,
-                                                                                 "roll_no":this.props.regdetails.roll_no
-                                                                             }),
-                                                                         }).then((res) =>
-                                                                             res.json())
-                                                                         .then((responseJson) => {
-                                                                             console.log('Success:',responseJson);
-                                                                            })
-                                                                            .catch((error) => {
-                                                                          console.error(error);
-                                                                        })    ;
-                                                                    }
-                                                            payload={reg:"reg3"};
+                                                               payload={reg:"reg3"};
                                                         }
                                                     }
                                                    break;
                                                case "reg3":
                                                {
+                                                           if (this.props.regdetails.roll_no==null)
+                                                           {
+                                                           fetch('http://'+url+'/v1/register', {
+                                                                method: 'POST',
 
+                                                                body: JSON.stringify({
+                                                                   "name":this.props.regdetails.name,
+                                                                    "email":this.props.regdetails.email,
+                                                                    "roll_no":this.props.regdetails.roll_no,
+                                                                    "dobday":this.props.regdetails.dob_date,
+                                                                    "dobmonth":this.props.regdetails.dob_month,
+                                                                    "dobyear":this.props.regdetails.dob_year,
+                                                                    "branch":this.props.regdetails.branch,
+                                                                    "password":this.props.regdetails.password,
+                                                                }),
+                                                            }).then((res) =>
+                                                                res.json())
+                                                            .then((responseJson) => {
+                                                                console.log('Success:',responseJson);
+                                                               })
+                                                               .catch((error) => {
+                                                             console.error(error);
+                                                           })    ;
+
+                                                       }
+                                                       else
+                                                       {
+                                                           fetch('http://'+url+'/v1/register', {
+                                                                method: 'POST',
+
+                                                                body: JSON.stringify({
+                                                                   "name":this.props.regdetails.name,
+                                                                    "email":this.props.regdetails.email,
+                                                                    "dobday":this.props.regdetails.dob_date,
+                                                                    "dobmonth":this.props.regdetails.dob_month,
+                                                                    "dobyear":this.props.regdetails.dob_year,
+                                                                    "branch":this.props.regdetails.branch,
+                                                                    "password":this.props.regdetails.password,
+                                                                    "roll_no":this.props.regdetails.roll_no
+                                                                }),
+                                                            }).then((res) =>
+                                                                res.json())
+                                                            .then((responseJson) => {
+                                                                console.log('Success:',responseJson);
+                                                               })
+                                                               .catch((error) => {
+                                                             console.error(error);
+                                                           })    ;
+                                                       }
                                                    //a fetchrequest like above and only if ture following statements
-                                                   this.props.nest2("Profile");
+                                                  // this.props.nest2("Profile");
                                                    payload={reg:"reg1"};
 
                                                }
