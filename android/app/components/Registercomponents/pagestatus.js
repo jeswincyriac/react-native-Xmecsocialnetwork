@@ -1,5 +1,5 @@
 import React,{Component}from 'react';
-import {View,Text,TouchableOpacity} from "react-native";
+import {View,Text,TouchableOpacity,ToastAndroid} from "react-native";
 import {connect} from "react-redux";
 import url from "./../url.js"
 var {bp, vw, vh} = require('react-native-relative-units')(375);
@@ -30,8 +30,28 @@ class PageStatus extends React.Component {
                                            switch (this.props.regdetails.reg) {
                                                case "reg1":{
                                                    if(this.props.regdetails.name==null||this.props.regdetails.email==null||this.props.regdetails.branch==null||this.props.regdetails.dob_date==null||this.props.regdetails.dob_month==null||this.props.regdetails.dob_year==null)
-                                                   {
-                                                       alert("Field not complete")
+                                                   {    fetch('http://'+url+'/v1/trying', {
+                                                        method: 'POST',
+                                                        body: JSON.stringify({
+                                                                "email":"hai",
+                                                            }),
+                                                        }).then((res) =>
+                                                            res.json())
+                                                        .then((responseJson) => {
+                                                               console.log(responseJson)
+                                                        })
+
+                                                    /*    fetch('http://'+url+'/v1/trying2', {
+                                                             method: 'POST',
+                                                             body: JSON.stringify({
+                                                                     "email":"hai",
+                                                                 }),
+                                                             }).then((res) =>
+                                                                 res.json())
+                                                             .then((responseJson) => {
+                                                                    console.log(responseJson)
+                                                             })                                   */
+                                                      // alert("Field not complete")
                                                         payload={reg:"reg1"}
                                                    }
                                                    else
@@ -46,6 +66,7 @@ class PageStatus extends React.Component {
                                                          payload={reg:"reg2"}
                                                         }
                                                         else {
+                                                            ToastAndroid.showWithGravity('Verifying e-mail adress.It may take a minute to receive OTP', ToastAndroid.LONG,ToastAndroid.TOP);
                                                             fetch('http://'+url+'/v1/otp', {
                                                                  method: 'POST',
                                                                  body: JSON.stringify({
@@ -54,15 +75,25 @@ class PageStatus extends React.Component {
                                                                  }).then((res) =>
                                                                      res.json())
                                                                  .then((responseJson) => {
-                                                                     console.log(responseJson);
+                                                                             console.log(responseJson["status"]);
+                                                                             if (responseJson["status"]=="Failed")
+                                                                             {
+                                                                                 this.props.update("nextbuttonclicked",{reg:"reg1"})
+                                                                                 alert("Error sending OTP to the Mail given")
+
+
+                                                                             }
+
+                                                                             //console.log(responseJson);
+                                                                             //console.log(payload);
                                                                     })
                                                                     .catch((error) => {
                                                                   console.error(error);
                                                                 })    ;
 
 
+                                                             payload={reg:"reg3"};
 
-                                                               payload={reg:"reg3"};
                                                         }
                                                     }
                                                    break;
@@ -82,11 +113,18 @@ class PageStatus extends React.Component {
                                                                     "dobyear":this.props.regdetails.dob_year,
                                                                     "branch":this.props.regdetails.branch,
                                                                     "password":this.props.regdetails.password,
+                                                                    "otp":this.props.regdetails.otp,
                                                                 }),
                                                             }).then((res) =>
                                                                 res.json())
                                                             .then((responseJson) => {
-                                                                console.log('Success:',responseJson);
+                                                                console.log(responseJson);
+                                                                if (responseJson["status"]== 'otp not correct')
+                                                                     ToastAndroid.showWithGravity('Sorry you have entered wrong otp', ToastAndroid.LONG,ToastAndroid.TOP)
+                                                                else {
+                                                                    this.props.update("nextbuttonclicked",{reg:"reg1"})
+                                                                    this.props.nest2("Profile");
+                                                                }
                                                                })
                                                                .catch((error) => {
                                                              console.error(error);
@@ -106,20 +144,27 @@ class PageStatus extends React.Component {
                                                                     "dobyear":this.props.regdetails.dob_year,
                                                                     "branch":this.props.regdetails.branch,
                                                                     "password":this.props.regdetails.password,
-                                                                    "roll_no":this.props.regdetails.roll_no
+                                                                    "roll_no":this.props.regdetails.roll_no,
+                                                                    "otp":this.props.regdetails.otp
                                                                 }),
                                                             }).then((res) =>
                                                                 res.json())
                                                             .then((responseJson) => {
-                                                                console.log('Success:',responseJson);
+                                                                console.log(responseJson)
+                                                                if (responseJson["status"]== 'otp not correct')
+                                                                     ToastAndroid.showWithGravity('Sorry you have entered wrong otp', ToastAndroid.LONG,ToastAndroid.TOP)
+                                                                else {
+                                                                    this.props.update("nextbuttonclicked",{reg:"reg1"})
+                                                                    this.props.nest2("Profile");
+                                                                }
                                                                })
                                                                .catch((error) => {
                                                              console.error(error);
                                                            })    ;
                                                        }
                                                    //a fetchrequest like above and only if ture following statements
-                                                  // this.props.nest2("Profile");
-                                                   payload={reg:"reg1"};
+
+                                                   payload={reg:"reg3"};
 
                                                }
                                                    break;

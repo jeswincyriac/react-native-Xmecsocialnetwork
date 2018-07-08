@@ -21,6 +21,7 @@ import Icone from 'react-native-vector-icons/MaterialCommunityIcons';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import DismissKeyboard from 'dismissKeyboard';
 import {connect} from "react-redux";
+import url from "./url.js"
 var {bp, vw, vh} = require('react-native-relative-units')(375);
 let valuelog = false;
 class Login extends React.Component {
@@ -29,7 +30,24 @@ class Login extends React.Component {
 
   }
   componentDidMount(){
-    this._loadInitialState().done();
+          fetch('http://'+url+'/v1/isloggedin', {
+               method: 'POST',
+
+               body: JSON.stringify({}),
+           }).then((res) =>
+               res.json())
+           .then((responseJson) => {
+               console.log(responseJson)
+               if (responseJson["logged_in"]== true)
+                    {
+                        this.props.nest("Profile");
+                    }
+
+              })
+              .catch((error) => {
+            console.error(error);
+          })    ;
+
   }
 
   _loadInitialState =async () =>{
@@ -221,14 +239,21 @@ class Login extends React.Component {
             })
       }).then((response) => response.json())
       .then ((res) =>{
-            /*  if (res.success === true){
-                 AsyncStorage.setItem('user',res.user);
-                 this.props.navigation.navigate('Profile');
-                   }
-              else {
-              alert(res.message);
-                   } */
+
               console.log(res)
+              if(res["status"]=="success")
+              {
+                 this.props.nest("Profile");
+              }
+              else if (res["status"]=="Invalid password") {
+                  alert("Please check your password")
+              }
+              else if (res["status"]=="User not registered") {
+                  alert("User not registered")
+              }
+              else  {
+                  alert("Something unexpected happened")
+              }
 
     });
 

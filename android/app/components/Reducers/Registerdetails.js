@@ -123,7 +123,7 @@ switch (actions.type) {
       }
         break;
     case "nextbuttonclicked":{
-        //console.log(state)
+        console.log(actions.payload.reg)
         return {
             name:state.name,
             email:state.email,
