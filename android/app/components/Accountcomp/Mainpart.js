@@ -11,12 +11,27 @@ import {
 
   import Icon from 'react-native-vector-icons/MaterialIcons';
   import IconE from 'react-native-vector-icons/EvilIcons';
+  import Iconmc from 'react-native-vector-icons/MaterialCommunityIcons';
   import Triangle from 'react-native-triangle';
   var {bp, vw, vh} = require('react-native-relative-units')(375);
   import {connect} from "react-redux";
+  import url from "../url.js"
 
 class Mainpart extends React.Component {
+    logout = () => {
+        console.log("hai")
+        //this.props.navigation.navigate('Home')
+        this.props.callbackFromParent();
+    /*    fetch('http://'+url+'/v1/logout', {
+           method: 'POST',
+           body: JSON.stringify({})
+        }).then((response) => response.json())
+        .then ((res) =>{
+            console.log(res["status"])
 
+            });*/
+
+    }
     render() {
       return(
           <View>
@@ -151,6 +166,30 @@ class Mainpart extends React.Component {
                   source={this.props.userdetails.imageurl}>
 
               </Image>
+             <TouchableOpacity style={{
+
+                     width: 25*vw,
+                     height: 4*vh,
+                     borderColor: "rgba(0,0,0,.20)",
+                     borderWidth: 1,
+                     borderRadius: 10,
+                     marginTop:10,
+                     elevation:2,
+                     justifyContent:"center",
+                     alignItems:"center",
+                     position:"absolute",
+                     left:8,
+                     flexDirection:"row",
+
+                 }}
+                 onPress={this.logout}>
+
+                    <Text style={{
+                            color:"rgba(0,0,0,.87)"
+                        }}>Log out    </Text>
+                    <Iconmc name="logout" size={24} color="rgba(0,0,0,.56)" />
+
+                </TouchableOpacity>
               <View
                   style={{
                       position:"absolute",

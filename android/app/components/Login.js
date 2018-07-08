@@ -11,6 +11,7 @@ import {
   ScrollView,
   ImageBackground,
 TouchableWithoutFeedback,
+Alert
 } from 'react-native';
 import { TextField } from 'react-native-material-textfield';
 import TextInput from 'react-native-material-textinput';
@@ -30,25 +31,34 @@ class Login extends React.Component {
 
   }
   componentDidMount(){
-          fetch('http://'+url+'/v1/isloggedin', {
-               method: 'POST',
 
-               body: JSON.stringify({}),
-           }).then((res) =>
-               res.json())
-           .then((responseJson) => {
-               console.log(responseJson)
-               if (responseJson["logged_in"]== true)
-                    {
-                        this.props.nest("Profile");
-                    }
+                      fetch('http://'+url+'/v1/isloggedin', {
+                           method: 'POST',
 
-              })
-              .catch((error) => {
-            console.error(error);
-          })    ;
+                           body: JSON.stringify({}),
+                       }).then((res) =>{
+                           res.json()
+                       })
+                       .then((responseJson) => {
+                           console.log(responseJson)
+                           if (responseJson["logged_in"]== true)
+                                {
+                                    this.props.nest("Profile");
+                                }
 
-  }
+                          })
+                          .catch(function(error) {
+                            console.log('There has been a problem with your fetch operation: ' + error.message);
+                             // ADD THIS THROW error
+                              throw error;
+                            });
+
+
+
+      }
+
+
+
 
   _loadInitialState =async () =>{
     var value = await AsyncStorage.getItem('user');
@@ -57,6 +67,7 @@ class Login extends React.Component {
     }
 
   }
+
   render() {
     return(
         <TouchableWithoutFeedback onPress={()=>{DismissKeyboard()}}>
@@ -94,7 +105,7 @@ class Login extends React.Component {
                                                underlineColor="#fff"
                                                underlineActiveColor="#90CAF9"
                                                autoCorrect={false}
-                                             onChangeText={(text) => {this.props.update("Username",text)}}
+                                             onChangeText={(text) => {this.props.update("Username",text.toLowerCase())}}
                                             />
                                      </View>
                            </View>

@@ -26,6 +26,11 @@ import {
           tabBarLabel: 'My Account',
          tabBarIcon: () => <Icon size={30} name="account-circle"  />
       }
+      myCallback = () => {
+          //console.log("pressed")
+          this.props.callbackFromParent2();
+     }
+
       getstyles = () => {
           if(!this.props.userdetails.editable)
           {
@@ -103,7 +108,7 @@ import {
                         flex:1
 
                     }}>
-                  <Mainpart/>
+                  <Mainpart callbackFromParent={this.myCallback}/>
 
                  <View style={{
                           backgroundColor:"#cfd8dc",

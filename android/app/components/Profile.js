@@ -69,10 +69,15 @@ const Navigation = TabNavigator(
 )
 
 export default class Profile extends React.Component {
+    myCallback = (dataFromChild) => {
+        console.log("pressed")
+        //this.props.callbackFromParent2();
+   }
     render() {
 
+
       return(
-                   <Navigation/>
+                   <Navigation callbackFromParent2={this.myCallback}/>
             );
           }
 
