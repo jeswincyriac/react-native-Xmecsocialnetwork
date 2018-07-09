@@ -12,9 +12,12 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import Iconmc from 'react-native-vector-icons/MaterialCommunityIcons'
 import SearchBar from 'react-native-material-design-searchbar'
 import Suggestorprofile from "./searchcomponents/Suggestorprofile.js"
+import Filter from "./searchcomponents/filterbox.js"
 import DismissKeyboard from 'dismissKeyboard';
+import {connect} from "react-redux";
+import Display from 'react-native-display';
 
-export default class Search extends React.Component {
+class Search extends React.Component {
       static navigationOptions = {
           tabBarLabel: 'Search',
          tabBarIcon: () => <Icon size={30} name="search"  />
@@ -74,7 +77,10 @@ export default class Search extends React.Component {
                             alignItems:"center",
                              backgroundColor:"#54AFF5"
                             //backgroundColor:"#fff",
-                        }}>
+                        }}
+                        onPress={()=>{
+                            console.log("i am pressed")
+                            this.props.update("fliteroptionchange","true")}}>
                        <Iconmc name="filter" size={24} color="white"/>
                     </TouchableOpacity>
                     </View>
@@ -85,8 +91,18 @@ export default class Search extends React.Component {
                               justifyContent:"center",
                              padding:5
                           }}>
+                           <Display enable={!this.props.Searchstate.filter} style={{flex:1}}>
                           <Text>Suggestions</Text>
+                          </Display>
+                          <Display enable={this.props.Searchstate.filter} style={{flex:1}}>
+                         <Text>Search Filter</Text>
+                         </Display>
                       </View>
+                      <Display enable={this.props.Searchstate.filter} >
+                      <View>
+                      <Filter></Filter>
+                      </View>
+                      </Display>
                     <ScrollView>
                       <Suggestorprofile
                           name="Jacob thomas"></Suggestorprofile>
@@ -100,3 +116,23 @@ export default class Search extends React.Component {
         );
       }
   }
+
+function mapDispatchToProps(dispatch){
+
+  return {
+    update: (dispatchType,dispatchPayload) => {
+
+
+         action = { payload: dispatchPayload,type: dispatchType}
+      console.log("why")
+      dispatch(action);
+    }
+  };
+}
+function mapstatetoprops(state){
+  return{
+
+      Searchstate:state.searchdetails
+  }
+}
+export default connect(mapstatetoprops,mapDispatchToProps)(Search)
