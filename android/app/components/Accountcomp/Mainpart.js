@@ -20,7 +20,7 @@ import {
 class Mainpart extends React.Component {
     logout = () => {
         console.log("hai")
-        //this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('Home')
         this.props.callbackFromParent();
     /*    fetch('http://'+url+'/v1/logout', {
            method: 'POST',

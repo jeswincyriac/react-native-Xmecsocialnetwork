@@ -16,9 +16,11 @@ import {Provider} from "react-redux"
 import allReducers from "./android/app/components/Reducers/index.js"
 import Loginm from './android/app/components/Loginm.js';
 import Profile from './android/app/components/Profile.js';
+import Mainpart from './android/app/components/Accountcomp/Mainpart.js';
 const Application =StackNavigator({
   Home:{screen:Loginm},
-  Profile:{screen:Profile}
+  Profile:{screen:Profile},
+  Logout:{screen:Mainpart}
 },{
   navigationOptions:{
     header:false,

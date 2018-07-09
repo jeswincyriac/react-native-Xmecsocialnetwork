@@ -36,9 +36,7 @@ class Login extends React.Component {
                            method: 'POST',
 
                            body: JSON.stringify({}),
-                       }).then((res) =>{
-                           res.json()
-                       })
+                       }).then((res) =>res.json())
                        .then((responseJson) => {
                            console.log(responseJson)
                            if (responseJson["logged_in"]== true)
