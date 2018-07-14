@@ -32,7 +32,7 @@ import {
                         labelActiveColor="#90CAF9"
                         //underlineColor="#fff"
                         underlineActiveColor="#90CAF9"
-                
+                        keyboardType="numeric"
                         autoCorrect={false}
                         onChangeText={(text) => {this.props.update("passoutyear",text)}}
                         />
@@ -70,7 +70,8 @@ import {
                              justifyContent:"center",
                              alignItems:"center"
 
-                         }}>
+                         }}
+                         onPress={this.props.searchclick(this.props.Searchstate.value)}>
                          <Text style={{
                              color:"#fff"
                          }}>Search</Text>

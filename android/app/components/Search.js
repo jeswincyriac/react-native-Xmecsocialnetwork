@@ -16,11 +16,30 @@ import Filter from "./searchcomponents/filterbox.js"
 import DismissKeyboard from 'dismissKeyboard';
 import {connect} from "react-redux";
 import Display from 'react-native-display';
+import url from "./url.js"
 
 class Search extends React.Component {
       static navigationOptions = {
           tabBarLabel: 'Search',
          tabBarIcon: () => <Icon size={30} name="search"  />
+      }
+
+      search = (text) => {
+                    //console.log()
+                this.props.update("searchchange",text)
+                 fetch('http://'+url+'/v1/search', {
+                     method: 'POST',
+                     body: JSON.stringify({
+                        "string":text,
+                        "branch":this.props.Searchstate.branch,
+                        "year":this.props.Searchstate.year,
+                        })
+                  }).then((response) => response.json())
+                  .then ((res) =>{
+                       console.log(res)
+
+                      });
+
       }
 
 
@@ -42,7 +61,10 @@ class Search extends React.Component {
                       <View style={{flex:1,
                                   backgroundColor:"#54AFF5"}} >
                       <SearchBar
-                        onSearchChange={() => console.log('On Search Change')}
+                        onSearchChange={(text)=>{
+
+                            this.search(text)
+                        }}
 
                         height={40}
                         onFocus={() => console.log('On Focus')}
@@ -100,7 +122,7 @@ class Search extends React.Component {
                       </View>
                       <Display enable={this.props.Searchstate.filter} >
                       <View>
-                      <Filter></Filter>
+                      <Filter searchclick={this.search}></Filter>
                       </View>
                       </Display>
                     <ScrollView>
@@ -124,7 +146,6 @@ function mapDispatchToProps(dispatch){
 
 
          action = { payload: dispatchPayload,type: dispatchType}
-      console.log("why")
       dispatch(action);
     }
   };

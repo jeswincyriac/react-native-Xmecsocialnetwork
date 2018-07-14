@@ -6,7 +6,8 @@ switch (actions.type) {
         return{
             filter:!state.filter,
             branch:state.branch,
-            year:state.year
+            year:state.year,
+            value:state.value
         }
     }
         break;
@@ -16,7 +17,19 @@ switch (actions.type) {
         return{
             filter:state.filter,
             branch:state.branch,
-            year:actions.payload
+            year:actions.payload,
+            value:state.value
+        }
+    }
+        break;
+    case "searchchange":
+    {
+        //console.log("hi")
+        return{
+            filter:state.filter,
+            branch:state.branch,
+            year:state.year,
+            value:action.payload
         }
     }
         break;
@@ -26,7 +39,8 @@ switch (actions.type) {
         return{
             filter:true,
             branch:actions.payload,
-            year:state.year
+            year:state.year,
+            value:state.value
         }
     }
         break;
@@ -35,7 +49,10 @@ switch (actions.type) {
     default:
      return{
          filter:false,
-         branch:""
+         branch:"",
+         year:"",
+         value:""
+
      }
 
 }

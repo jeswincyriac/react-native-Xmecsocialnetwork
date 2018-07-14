@@ -32,7 +32,7 @@ class Login extends React.Component {
   }
   componentDidMount(){
 
-                      fetch('http://'+url+'/v1/isloggedin', {
+                /*      fetch('http://'+url+'/v1/isloggedin', {
                            method: 'POST',
 
                            body: JSON.stringify({}),
@@ -51,7 +51,7 @@ class Login extends React.Component {
                               throw error;
                             });
 
-
+*/
 
       }
 
@@ -157,7 +157,6 @@ class Login extends React.Component {
 
                                        }}>
                                     <Text style={{
-                                        fontFamily:'Roboto-medium',
                                         fontSize:13,
                                         color:"#fff"
                                     }}>LOG IN</Text>
